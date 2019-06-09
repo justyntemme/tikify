@@ -1,5 +1,6 @@
 <template>
     <div class="sign-up">
+        <Navbar/>
         <p>Create a new account</p>
         <b-alert
             dismissible
@@ -17,9 +18,13 @@
 <script>
 
 import firebase from 'firebase'
+import Navbar from '@/components/layout/Navbar.vue'
 
     export default {
         name: 'signUp',
+        components: {
+            Navbar
+        },
         data() {
             return {
                 email: '',

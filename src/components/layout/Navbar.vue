@@ -1,13 +1,12 @@
 <template>
-  <header>
-    <h1>Tikify</h1>
-    </header>
+    <div class="navbar">
+        <b-button class="back-btn" pill variant="info">Back</b-button>
+    </div>
 </template>
-
 <script>
 
 export default {
-  name: 'Header',
+  name: 'navbar',
   props: {
   }
 }
