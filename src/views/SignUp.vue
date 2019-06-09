@@ -11,7 +11,7 @@
         
         <input type="text" v-model="email" placeholder="Email"><br>
         <input type="password" v-model="password" placeholder="Password"><br>
-        <button @click="signUp">Sign Up</button>
+        <b-button @click="signUp" class="signup-btn" pill variant="primary">Sign Up</b-button>
     </div>
 </template>
 
