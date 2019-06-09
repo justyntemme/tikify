@@ -2,11 +2,11 @@
     <div class="sign-up">
         <p>Create a new account</p>
         <b-alert
-            :show="dismissCountDown"
             dismissible
-            variant="warning"
+            :show="dismissCountDown"
+            :variant="msgVariant"
             @dismissed="dismissCountDown=0"
-            @dismiss-count-down="countDownChanged"> {{errorMsg}}</b-alert>
+            @dismiss-count-down="countDownChanged">{{errorMsg}}</b-alert>
         
         <input type="text" v-model="email" placeholder="Email"><br>
         <input type="password" v-model="password" placeholder="Password"><br>
@@ -24,9 +24,10 @@ import firebase from 'firebase'
             return {
                 email: '',
                 password: '',
-                dismissSecs: 5,
+                dismissSecs: 30,
                 dismissCountDown: 0,
-                errorMsg: ''
+                errorMsg: '',
+                msgVariant: ''
             }
         },
         methods: {
@@ -42,10 +43,13 @@ import firebase from 'firebase'
                 let v = this;
                 firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
                     function(user){
-                        alert('Your account has been created ' + user.email)
+                        v.msgVariant = "success";
+                        v.errorMsg = "Your account has been created!";
+                        v.showAlert();
                     },
                     function (err) {
                          v.errorMsg = err.message;
+                         v.msgVariant = "danger";
                          v.showAlert();
                         
                     }
