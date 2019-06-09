@@ -16,8 +16,6 @@
 </template>
 
 <script>
-
-import firebase from 'firebase'
 import Navbar from '@/components/layout/Navbar.vue'
 
     export default {
@@ -25,14 +23,36 @@ import Navbar from '@/components/layout/Navbar.vue'
         components: {
             Navbar
         },
+        mounted() {
+            this.$store.watch(
+                state=>state.status,
+                (data) => {
+                    this.status = data
+
+                    if (this.status == 'failure') {
+                        this.msgVariant = "danger"
+                        this.errorMsg = this.$store.getters.error
+                        this.showAlert()
+
+                    } else if (this.status == 'success') {
+                        this.msgVariant = "success"
+                        this.errorMsg = "Account created, please return to log in."
+                        this.showAlert()
+                    }
+
+                }
+            )
+
+        },
         data() {
             return {
                 email: '',
                 password: '',
-                dismissSecs: 30,
+                dismissSecs: 5,
                 dismissCountDown: 0,
                 errorMsg: '',
-                msgVariant: ''
+                msgVariant: '',
+                status: ''
             }
         },
         methods: {
@@ -46,19 +66,11 @@ import Navbar from '@/components/layout/Navbar.vue'
             },
             signUp: function() {
                 let v = this;
-                firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
-                    function(user){
-                        v.msgVariant = "success";
-                        v.errorMsg = "Your account has been created!";
-                        v.showAlert();
-                    },
-                    function (err) {
-                         v.errorMsg = err.message;
-                         v.msgVariant = "danger";
-                         v.showAlert();
-                        
-                    }
-                )
+                const user = {
+                    email: v.email,
+                    password: v.password
+                }
+                v.$store.dispatch('signUpAction', user)
             }
         }
     }

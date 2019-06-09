@@ -17,15 +17,31 @@
 <script>
 // @ is an alias to /src
 import Navbar from '@/components/layout/Navbar.vue'
-import firebase from 'firebase'
 
 export default {
   name: 'login',
+  mounted() {
+    this.$store.watch(
+        state=>state.status,
+        (data) => {
+            this.status = data
+
+            if (this.status == 'failure') {
+                this.msgVariant = "danger"
+                this.errorMsg = this.$store.getters.error
+                this.showAlert()
+
+            } else if (this.status == 'success') {
+
+            }
+        }
+    )
+  },
   data() {
     return {
       email: '',
       password: '',
-      dismissSecs: 30,
+      dismissSecs: 5,
       dismissCountDown: 0,
       errorMsg: '',
       msgVariant: ''
@@ -46,17 +62,11 @@ export default {
     },
     login() {
       let v = this;
-      firebase.auth().signInWithEmailAndPassword(v.email, v.password).then(
-        function(user) {
-
-        },
-        function(err) {
-          v.msgVariant = "danger";
-          v.errorMsg = err.message;
-          v.showAlert();
-
-        }
-      );
+      const user = {
+          email: v.email,
+          password: v.password
+      }
+      v.$store.dispatch('signInAction', user)
     }
   }
 }
