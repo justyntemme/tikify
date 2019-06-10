@@ -1,3 +1,16 @@
 .back-btn {
     align-content: left;
+    background: #F5F5F5;
+    color: #E91E63;
+}
+.navbar {
+    width: 100%;
+    background: white;
+    border: 1px solid #FFFFFF; 
+    border-radius: 51px; 
+}
+b-navbar {
+    background: #F5F5F5; 
+    border: 1px solid #FFFFFF; 
+    border-radius: 51px; 
 }

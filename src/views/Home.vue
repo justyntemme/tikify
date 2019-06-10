@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    <Navbar/>
+    Dashboard
   </div>
 </template>
 

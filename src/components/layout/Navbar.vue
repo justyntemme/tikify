@@ -1,6 +1,9 @@
 <template>
     <div class="navbar">
-        <b-button @click="goBack" class="back-btn" pill variant="info">Back</b-button>
+      <b-navbar type="light" variant="light">
+        <b-button @click="goBack" class="back-btn" pill variant="info"><</b-button>
+        <b-nav-item class="ml-auto" href="#"><img src="/assets/logo.png"></img></b-nav-item>
+      </b-navbar>
     </div>
 </template>
 <script>
@@ -37,4 +40,5 @@ li {
 a {
   color: #42b983;
 }
+
 </style>
