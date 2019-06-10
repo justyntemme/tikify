@@ -22,6 +22,18 @@ b-navbar {
     border: 0px;
 }
 
+.signup-btn {
+    background: #F5F5F5;
+    color: #E91E63;
+    border: 0px;
+}
+
 a {
     color: #E91E63;
+}
+
+input {
+    background: #F5F5F5; 
+    border: 1px solid #FFFFFF; 
+    border-radius: 20px; 
 }
