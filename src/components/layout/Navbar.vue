@@ -1,12 +1,22 @@
 <template>
     <div class="navbar">
-        <b-button class="back-btn" pill variant="info">Back</b-button>
+        <b-button @click="goBack" class="back-btn" pill variant="info">Back</b-button>
     </div>
 </template>
 <script>
+import Router from 'vue-router'
+import Vue from 'vue'
+
+Vue.use(Router)
 
 export default {
   name: 'navbar',
+  methods: {
+    goBack() {
+      let v = this;
+      v.$router.go(-1)
+    }
+  },
   props: {
   }
 }
