@@ -2,6 +2,7 @@
     align-content: left;
     background: #F5F5F5;
     color: #E91E63;
+    border: 0px;
 }
 .navbar {
     width: 100%;
@@ -13,4 +14,14 @@ b-navbar {
     background: #F5F5F5; 
     border: 1px solid #FFFFFF; 
     border-radius: 51px; 
+}
+
+.login-btn {
+    background: #F5F5F5;
+    color: #E91E63;
+    border: 0px;
+}
+
+a {
+    color: #E91E63;
 }
