@@ -9,6 +9,7 @@ export default new Vuex.Store({
     user: null,
     status: '',
     error: '',
+    db: firebase.firestore(),
   },
   getters: {
     status(state) {
@@ -66,13 +67,13 @@ export default new Vuex.Store({
 
     },
     getProductsAction() {
-      var firstProducts = db.collection("products")
+      var firstProducts = this.$store.state.db.collection("products")
         .orderBy("userID")
         .limit(25);
 
     },
     getSalesAction() {
-      var firstSales = db.collection("sales")
+      var firstSales = this.$store.state.db.collection("sales")
       .orderBy("userID")
       .limit(25);
 
