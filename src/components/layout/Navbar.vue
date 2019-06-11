@@ -2,7 +2,7 @@
     <div class="navbar">
       <b-navbar type="light" variant="light">
         <b-button @click="goBack" class="back-btn" pill variant="info"><</b-button>
-        <b-nav-item class="ml-auto" href="#"><img src="/assets/logo.png"></img></b-nav-item>
+        <b-nav-item class="ml-auto " href="#"><img class="nav-logo" src="@/assets/logo.png"/></b-nav-item>
       </b-navbar>
     </div>
 </template>

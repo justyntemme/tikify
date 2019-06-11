@@ -1,6 +1,7 @@
 <template>
   <div class="login">
     <Navbar/>
+    <img style="height: 70px; width: 70px;" src="@/assets/user_male_circle.svg"/><br>
     <input v-model="email" type="text" placeholder="Username"><br>
     <input v-model="password" type="password" placeholder="Password"><br>
             <b-alert

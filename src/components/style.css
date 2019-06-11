@@ -37,3 +37,8 @@ input {
     border: 1px solid #FFFFFF; 
     border-radius: 20px; 
 }
+
+.nav-logo {
+    height: 40px;
+    width: 90px;
+}

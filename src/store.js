@@ -64,6 +64,18 @@ export default new Vuex.Store({
     },
     signOutAction() {
 
+    },
+    getProductsAction() {
+      var firstProducts = db.collection("products")
+        .orderBy("userID")
+        .limit(25);
+
+    },
+    getSalesAction() {
+      var firstSales = db.collection("sales")
+      .orderBy("userID")
+      .limit(25);
+
     }
 
   }
