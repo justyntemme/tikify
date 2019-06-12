@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import SignUp from './views/SignUp.vue'
+import Product from './views/Product.vue'
 import firebase from 'firebase'
 
 Vue.use(Router)
@@ -17,6 +18,17 @@ const router = new Router({
       component: Home,
       meta: {
         requiresAuth: true
+      }
+    },
+    {
+      path: '/product',
+      name: 'product',
+      component: Product,
+      meta: {
+        requiresAuth: true
+      },
+      props: {
+        ID: ''
       }
     },
     {
@@ -60,7 +72,7 @@ router.beforeEach((to, from, next) => {
 
   if(requiresAuth && !currentUser){
 
-    next('login');
+    next('about');
   } 
   else if (!requiresAuth && currentUser) { 
     next();
