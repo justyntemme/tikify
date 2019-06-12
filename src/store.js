@@ -4,12 +4,16 @@ import firebase from 'firebase'
 
 Vue.use(Vuex)
 
+
+
 export default new Vuex.Store({
   state: {
     user: null,
     status: '',
     error: '',
-    db: firebase.firestore(),
+    db: {},
+    products: {},
+    sales: {},
   },
   getters: {
     status(state) {
@@ -20,6 +24,9 @@ export default new Vuex.Store({
     },
     error (state) {
       return state.error
+    },
+    products (state) {
+      return state.products
     }
   },
   mutations: {
@@ -34,6 +41,12 @@ export default new Vuex.Store({
     },
     setError(state, payload) {
       state.error = payload
+    },
+    setProducts(state, payload) {
+      state.products = payload
+    },
+    setSales(state, payload) {
+      state.sales = payload
     }
 
   },
@@ -66,16 +79,26 @@ export default new Vuex.Store({
     signOutAction() {
 
     },
-    getProductsAction() {
-      var firstProducts = this.$store.state.db.collection("products")
-        .orderBy("userID")
-        .limit(25);
+    getProductsAction({commit} ) {
+      let products = []
+      let db = firebase.firestore()
+      let productsCollection = db.collection('products')
+      productsCollection.onSnapshot((productRef) => {
+        productRef.forEach((doc) => {
+          const product = doc.data();
+          product.id = products.id;
+          products.push(product)
+        });
+        commit('setProducts', products)
+      })
 
     },
-    getSalesAction() {
-      var firstSales = this.$store.state.db.collection("sales")
+    getSalesAction({commit}) {
+      let db = firebase.firestore();
+      let firstSales = db.collection("sales")
       .orderBy("userID")
       .limit(25);
+      commit('setSales', firstSales)
 
     }
 

@@ -24,6 +24,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+
 Vue.config.productionTip = false
 
 new Vue({
