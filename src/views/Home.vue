@@ -1,18 +1,25 @@
 <template>
   <div class="home">
-    <h1>Dashboard</h1>
-    <b-card v-for="product in products">
+    <Navbar/>
+    <b-container>
+    <b-row>
+    <b-col  v-for="product in products" cols="12">
+    <b-card class="product-card">
       <b-card-body>
-      <b-card-title>{{product.title}}</b-card-title>
+      <b-card-title>{{product.type}}</b-card-title>
       <b-card-text>{{product.info}}</b-card-text>
-      <b-card-footer><b-button href="#" variant="secondary">Details</b-button></b-card-footer>
+      <b-card-text>{{product.price}}</b-card-text>
+      <b-button href="#" variant="secondary">Details</b-button>
       </b-card-body>
       </b-card>
+    </b-col>
+    </b-row>
+    </b-container>
   </div>
 </template>
 
 <script>
-
+import Navbar from '@/components/layout/Navbar.vue'
 export default {
   name: 'home',
   mounted() {
@@ -26,6 +33,7 @@ export default {
     )
   },
   components: {
+    Navbar
   },
   data() {
     return {

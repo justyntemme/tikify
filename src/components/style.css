@@ -42,3 +42,11 @@ input {
     height: 40px;
     width: 90px;
 }
+
+.product-card {
+    border-radius: 40px;
+    background-color: #E0E0E0;
+    border-color: #F44336;
+    margin-bottom: 2px;
+
+}
