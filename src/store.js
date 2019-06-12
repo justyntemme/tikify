@@ -94,13 +94,17 @@ export default new Vuex.Store({
 
     },
     getSalesAction({commit}) {
-      let db = firebase.firestore();
-      let firstSales = db.collection("sales")
-      .orderBy("userID")
-      .limit(25);
-      commit('setSales', firstSales)
-
-    }
-
+      let sales = []
+      let db = firebase.firestore()
+      let salesCollection = db.collection('sales')
+      salesCollection.onSnapshot((salesRef) => {
+        salesRef.forEach((doc) => {
+          const sale = doc.data();
+          sale.id = sales.id;
+          sales.push(sale)
+        });
+        commit('setSales', sales)
+      })
+    },
   }
 })
