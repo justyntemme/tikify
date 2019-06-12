@@ -33,7 +33,7 @@ export default {
                 this.showAlert()
 
             } else if (this.status == 'success') {
-              this.$router.push('home')
+              this.$router.push('/')
             }
         }
     )

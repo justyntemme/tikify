@@ -32,3 +32,13 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
+
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    app = new Vue({
+      router,
+      store,
+      render: h => h(App)
+    }).$mount('#app')
+  }
+})
