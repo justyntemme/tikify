@@ -1,8 +1,25 @@
 <template>
-  <div class="product">
+  <div class="product container">
     <Navbar/>
-    {{ID}}
-    
+    <div class="col-6 col-ml-auto"></div>
+    <div class="col-6 product-header">
+    </div>  
+    <br>
+    <div class="col-5">
+    <h4>Advertisement Type</h4>
+
+    <h4>Ad Platform</h4>
+
+    <h4>Duration</h4>
+    </div>
+    <div class="col-5">
+      <p>Blog</p>
+
+      <p>TikTok</p>
+
+      <p>1 Week</p>
+
+    </div>
   </div>
 </template>
 
@@ -11,11 +28,11 @@ import Navbar from '../components/layout/Navbar.vue'
 export default {
   name: 'product',
   props: {
-    ID: ''
+    product: {}
   },
   mounted() {
     let v = this;
-    v.ID = v.$route.params.ID
+    v.product = v.$route.params.product
 
 
   },

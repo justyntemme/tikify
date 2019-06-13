@@ -28,7 +28,7 @@ const router = new Router({
         requiresAuth: true
       },
       props: {
-        ID: ''
+        product: {}
       }
     },
     {

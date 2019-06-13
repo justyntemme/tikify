@@ -5,21 +5,21 @@
       <h3 class="product-title ">Products ></h3>
     <b-row class="b-row col-12 align-items-center">
     <b-col  v-for="product in products" class="col-4 justify-content-center">
-    <b-card class="product-card">
+    <router-link :to="{ name: 'product', params: { product: product}}"><b-card class="product-card">
         <b-card-title class="card-title">{{product.type}}</b-card-title>
         <b-card-text class="card-text">{{product.price}}</b-card-text>
-        <router-link :to="{ name: 'product', params: { ID: product.ID}}"><b-button class="details-button" variant="secondary">Details</b-button></router-link>
-      </b-card>
+        <b-button class="details-button" variant="secondary">Details</b-button>
+      </b-card></router-link>
     </b-col>
     </b-row>
     <h3 class="sales-title">Sales ></h3>
         <b-row class="b-row col-12">
     <b-col  v-for="sale in sales" class="col-4">
-    <b-card class="product-card">
+    <router-link :to="{ name: 'sale', params: { ID: sale.ID}}"><b-card class="product-card">
         <b-card-title class="card-title">{{sale.type}}</b-card-title>
         <b-card-text class="card-text">{{sale.email}}</b-card-text>
-        <router-link :to="{ name: 'sale', params: { ID: sale.ID}}"><b-button class="details-button" variant="secondary">Details</b-button></router-link>
-      </b-card>
+        <b-button class="details-button" variant="secondary">Details</b-button>
+      </b-card></router-link>
     </b-col>
     </b-row>
     </b-container>
