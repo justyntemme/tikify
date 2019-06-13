@@ -25,7 +25,7 @@ const router = new Router({
       name: 'product',
       component: Product,
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
       props: {
         product: {}
