@@ -1,9 +1,8 @@
 <template>
   <div class="product container">
-   
     <div id="frame">
       <button @click="goBack()" id="floating-btn">‹</button>
-       <button class="editBtn">✎</button>
+       <router-link :to="{ name: 'productedit', params: { product: product}}"><button class="editBtn">✎</button></router-link>
       <div id="shape"></div>
         <p>{{product.info}}</p>
         <span id="sub-text">{{product.duration}}</span>
@@ -19,7 +18,6 @@
 </template>
 
 <script>
-import Navbar from '../components/layout/Navbar.vue'
 export default {
   name: 'product',
   props: {
@@ -30,6 +28,7 @@ export default {
     v.product = v.$route.params.product
   },
   components: {
+    
   },
   data() {
     return {
@@ -39,7 +38,7 @@ export default {
   methods:{
     goBack() {
       let v = this;
-      v.$router.go(-1)
+      v.$router.replace('home')
     },
 
   }
