@@ -182,3 +182,51 @@ input {
     font-weight: bold;
     color: #f56;
   }
+
+  .home-logo {
+    height: 40px;
+    width: 90px;
+    
+  }
+
+.get-started {
+    color: #000000; 
+    font-family: Arimo; 
+    font-size: 40px; 
+    font-weight: bold; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: center; 
+    margin: 10%;
+}
+.welcome {
+    margin-top: 5em;
+}
+
+.bottom-border {
+    width: 100%;
+}
+
+.footer {
+    width: 100%;
+}
+
+.home-nav-btn {
+    color: #F44336; 
+    margin: 5px;
+    font-family: Arimo; 
+    font-size: 15px; 
+    font-weight: bold; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: center; 
+    background: #FFFFFF; 
+    border: 2px solid #F44336; 
+    border-radius: 10px; 
+    box-shadow:2px 2px 4px 0px rgba(0,0,0,0.5); 
+}
+
+.nav-logo {
+    margin-top: 5px;
+}
+
