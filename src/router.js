@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import SignUp from './views/SignUp.vue'
 import Product from './views/Product.vue'
+import ProductEdit from './views/ProductEdit.vue'
 import firebase from 'firebase'
 
 Vue.use(Router)
@@ -19,6 +20,15 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/edit',
+      name: 'productedit',
+      component: ProductEdit,
+      props: {
+        product: {}
+      }
+
     },
     {
       path: '/product',
