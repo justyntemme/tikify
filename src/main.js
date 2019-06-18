@@ -8,10 +8,6 @@ import store from './store'
 import firebase from 'firebase'
 import './components/style.css'
 
-
-
-
-// Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyBq6Yj3sIwPW20jYGtUKN67oQtodvVJvFM",
   authDomain: "tikify-e74ea.firebaseapp.com",
@@ -23,6 +19,14 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+
+
+
+
+
+// Your web app's Firebase configuration
+
 
 
 Vue.config.productionTip = false

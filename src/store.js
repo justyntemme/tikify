@@ -1,14 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import firebase from 'firebase'
+import * as firebase from 'firebase'
+
 
 Vue.use(Vuex)
 
 
 
+
 export default new Vuex.Store({
   state: {
-    user: null,
+    user: '',
     status: '',
     error: '',
     db: {},
@@ -65,7 +67,8 @@ export default new Vuex.Store({
     },
     
     signInAction({commit}, payload) {
-      firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){
+        firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
         .then((response) => {
           commit('setUser', response.user.uid)
           commit('setStatus', 'success')
@@ -75,6 +78,9 @@ export default new Vuex.Store({
           commit('setStatus', 'failure')
           commit('setError', error.message)
         })
+
+      })
+
     },
     signOutAction() {
 

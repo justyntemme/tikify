@@ -82,22 +82,26 @@ const router = new Router({
 export default router
 
 router.beforeEach((to, from, next) => {
-  const currentUser = firebase.auth().currentUser;
-  const requiresAuth = to.matched.some(record =>record.meta.requiresAuth);
-  if (to.path != 'login' ) {
-    console.log(firebase.auth().currentUser)
-
-
-  if(requiresAuth && !currentUser){
-
-    next('about');
-  } 
-  else if (!requiresAuth && currentUser) { 
-    next();
+  firebase.auth().onAuthStateChanged(user => {
+    if (to.path != 'login' ) {
+      console.log(firebase.auth().currentUser)
+  
+  
+    if(requiresAuth && !user){
+  
+      next('about');
+    } 
+    else if (!requiresAuth && user) { 
+      next();
+    }
+    else {
+      next();
+    } 
   }
-  else {
-    next();
-  } 
-}
+
+  });
+
+  const requiresAuth = to.matched.some(record =>record.meta.requiresAuth);
+
 });
 
