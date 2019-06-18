@@ -5,6 +5,7 @@ import Login from './views/Login.vue'
 import SignUp from './views/SignUp.vue'
 import Product from './views/Product.vue'
 import ProductEdit from './views/ProductEdit.vue'
+import ProductCreate from './views/ProductCreate.vue'
 import firebase from 'firebase'
 
 Vue.use(Router)
@@ -28,17 +29,24 @@ const router = new Router({
       props: {
         product: {}
       }
-
     },
     {
       path: '/product',
       name: 'product',
       component: Product,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       },
       props: {
         product: {}
+      }
+    },
+    {
+      path: '/product/create',
+      name: 'productcreate',
+      component: ProductCreate,
+      meta: {
+        requiresAuth: true
       }
     },
     {

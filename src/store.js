@@ -83,15 +83,17 @@ export default new Vuex.Store({
       let v = this;
       let products = []
       let db = firebase.firestore()
+      
       let productsCollection = db.collection('products')
-      .where("id", "==",firebase.auth().currentUser.uid )
+      .where("uid", "==",firebase.auth().currentUser.uid )
       productsCollection.onSnapshot((productRef) => {
         productRef.forEach((doc) => {
           const product = doc.data();
-          product.id = doc.id;
+          product.id = doc.id
           products.push(product)
         });
         commit('setProducts', products)
+        console.log(firebase.auth().currentUser.uid)
       })
 
     },
@@ -102,7 +104,7 @@ export default new Vuex.Store({
       salesCollection.onSnapshot((salesRef) => {
         salesRef.forEach((doc) => {
           const sale = doc.data();
-          sale.id = sales.id;
+          sale.id = doc.id;
           sales.push(sale)
         });
         commit('setSales', sales)

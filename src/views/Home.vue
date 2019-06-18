@@ -23,6 +23,9 @@
     </b-col>
     </b-row>
     </b-container>
+    <div class="footer">
+      <router-link :to="{ name: 'productcreate'}"> <b-button class="details-button create-new-btn" variant="secondary">New Product</b-button></router-link>
+    </div>
   </div>
 </template>
 
