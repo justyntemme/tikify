@@ -2,7 +2,7 @@
   <div class="product container">
     <div id="frame">
       <router-link :to="{ name: 'product', params: { product: product}}"><button id="floating-btn">‹</button></router-link>
-      <button class="editBtn">&#128190;</button>
+      <button @click="update()" class="editBtn">&#128190;</button>
       <div id="shape"></div>
             <b-form-textarea
             id="textarea"
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-
+import firebase from 'firebase'
 export default {
     components: {
 
@@ -36,6 +36,14 @@ export default {
         let v = this;
         v.product = v.$route.params.product
     },
+    methods: {
+        update() {
+            let v = this;
+            console.log(v.product)
+             firebase.firestore().collection("products").doc(v.product.id).update(v.product);
+             v.$router.push({path: '/'})
+        }
+    }
     
 }
 </script>

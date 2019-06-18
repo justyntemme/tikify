@@ -80,13 +80,15 @@ export default new Vuex.Store({
 
     },
     getProductsAction({commit} ) {
+      let v = this;
       let products = []
       let db = firebase.firestore()
       let productsCollection = db.collection('products')
+      .where("id", "==",firebase.auth().currentUser.uid )
       productsCollection.onSnapshot((productRef) => {
         productRef.forEach((doc) => {
           const product = doc.data();
-          product.id = products.id;
+          product.id = doc.id;
           products.push(product)
         });
         commit('setProducts', products)
