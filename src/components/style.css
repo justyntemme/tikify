@@ -165,3 +165,20 @@ input {
     color: #fff;
     border-radius: 5px;
   }
+
+  .editBtn {
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: 65px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #f56;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+    font-size: 22px;
+    font-weight: bold;
+    color: #f56;
+  }

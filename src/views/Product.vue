@@ -1,7 +1,9 @@
 <template>
   <div class="product container">
+   
     <div id="frame">
       <button @click="goBack()" id="floating-btn">‹</button>
+       <button class="editBtn">✎</button>
       <div id="shape"></div>
         <p>{{product.info}}</p>
         <span id="sub-text">{{product.duration}}</span>
