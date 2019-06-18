@@ -38,7 +38,7 @@ export default {
   methods:{
     goBack() {
       let v = this;
-      v.$router.replace('home')
+      v.$router.push({path: '/'})
     },
 
   }
