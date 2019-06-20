@@ -191,7 +191,6 @@ input {
 
 .get-started {
     color: #000000; 
-    font-family: Arimo; 
     font-size: 40px; 
     font-weight: bold; 
     font-style: normal; 
@@ -234,5 +233,13 @@ input {
     position: fixed;
     left: 0px;
     bottom: 0px;
+}
+
+h1 {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+h2 {
+    font-family: 'Shadows Into Light', cursive;
 }
 
