@@ -15,7 +15,7 @@ const router = new Router({
       meta: {
         requiresAuth: true
       },
-      component: () => import('@/views/Home.vue')
+      component: () => import(/* webpackChunkName: "home" */'@/views/Home.vue')
     },
     {
       path: '/products',
@@ -23,7 +23,7 @@ const router = new Router({
       meta: {
         requiresAuth: true
       },
-      component: () => import('@/views/ProductList.vue')
+      component: () => import(/* webpackChunkName: "products" */'@/views/ProductList.vue')
     },
     {
       path: '/sales',
@@ -31,7 +31,7 @@ const router = new Router({
       meta: {
         requiresAuth: true
       },
-      component: () => import('@/views/Sales.vue')
+      component: () => import(/* webpackChunkName: "sales" */'@/views/Sales.vue')
     },
     {
       path: '/edit',
@@ -39,7 +39,7 @@ const router = new Router({
       props: {
         product: {}
       },
-      component: () => import('@/views/ProductEdit.vue')
+      component: () => import(/* webpackChunkName: "productedit" */'@/views/ProductEdit.vue')
     },
     {
       path: '/product',
@@ -50,7 +50,7 @@ const router = new Router({
       props: {
         product: {}
       },
-      component: () => import('@/views/Product.vue')
+      component: () => import(/* webpackChunkName: "product" */'@/views/Product.vue')
     },
     {
       path: '/product/create',
@@ -58,7 +58,7 @@ const router = new Router({
       meta: {
         requiresAuth: true
       },
-      component: () => import('@/views/ProductCreate.vue')
+      component: () => import(/* webpackChunkName: "productcreate" */'@/views/ProductCreate.vue')
     },
     {
       path: '/login',
@@ -66,7 +66,7 @@ const router = new Router({
       meta: {
         guest: true
       },
-      component: () => import('@/views/Login.vue')
+      component: () => import(/* webpackChunkName: "login" */'@/views/Login.vue')
     },
     {
       path: '/signup',
@@ -74,7 +74,7 @@ const router = new Router({
       meta: {
         guest: true
       },
-      component: () => import(/* webpackChunkName: "about" */'@/views/SignUp.vue')
+      component: () => import(/* webpackChunkName: "signup" */'@/views/SignUp.vue')
     },
     {
       path: '/about',
