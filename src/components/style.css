@@ -243,3 +243,8 @@ h2 {
     font-family: 'Shadows Into Light', cursive;
 }
 
+.footer {
+    position: absolute;
+    bottom: 0px;
+}
+
