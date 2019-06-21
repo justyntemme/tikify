@@ -8,6 +8,8 @@ import store from './store'
 import firebase from 'firebase'
 import './components/style.css'
 
+
+
 var firebaseConfig = {
   apiKey: "AIzaSyBq6Yj3sIwPW20jYGtUKN67oQtodvVJvFM",
   authDomain: "tikify-e74ea.firebaseapp.com",
