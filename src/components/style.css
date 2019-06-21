@@ -383,5 +383,47 @@ h2 {
   padding: 5px; 
   }
 
-  
+
+.news-box {
+  background-image: url("~@/assets/pink-card.png");
+  z-index: 20;
+  background-size: stretch;
+  background-repeat: no-repeat;
+  border-radius: 40px;
+  overflow:hidden
+}
+
+.news-body {
+  margin-top: 40px;
+  overflow: hidden;
+  margin-right: -10px;
+  margin-left: 20px;
+}
+
+
+.stats {
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 50%;
+}
+
+.stats i {
+  top: 40px;
+}
+.stats {
+  background-image: url("~@/assets/circle.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+} 
+
+.news-row {
+
+}
+
 

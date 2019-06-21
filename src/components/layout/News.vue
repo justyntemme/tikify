@@ -1,7 +1,7 @@
 <template>
     <b-container class="news">
         <h2>Top News</h2>
-        <b-row>
+        <b-row class="news-row">
             <b-col class="news-box">
                 <div class="news-body">
                 <h3>News 1</h3>
@@ -17,8 +17,27 @@
         </b-row>
         <h2>Sales and statistics</h2>
         <b-row>
+            <b-col>
+                <h3>Total Posts</h3>
+                <div class="stats">
+                
+                </div>
+              
+            </b-col>
+            <b-col>
+                <h3>Monthly Sales</h3>
+                <div class="stats">
 
+                </div>
+            
+            </b-col>
+            <b-col>
+                <h3>Active Posts</h3>
+                <div class="stats">
 
+                </div>
+          
+            </b-col>
         </b-row>
     </b-container>
 </template>
@@ -32,17 +51,5 @@ export default {
 
 <style>
 
-.news-box {
-    background-image: url("~@/assets/pink-card.png");
-    z-index: 20;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 40px;
 
-}
-
-.news-body {
-    margin-top: 40px;
-    
-}
 </style>
