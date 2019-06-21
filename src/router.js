@@ -7,6 +7,7 @@ import Product from './views/Product.vue'
 import ProductEdit from './views/ProductEdit.vue'
 import ProductCreate from './views/ProductCreate.vue'
 import ProductList from '@/views/ProductList.vue'
+import Sales from '@/views/Sales.vue'
 import firebase from 'firebase'
 
 Vue.use(Router)
@@ -27,6 +28,14 @@ const router = new Router({
       path: '/products',
       name: 'products',
       component: ProductList,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/sales',
+      name: 'sales',
+      component: Sales,
       meta: {
         requiresAuth: true
       }

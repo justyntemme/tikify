@@ -3,16 +3,7 @@
     <Navbar/>
     <b-container class="">
 
-    <h3 class="sales-title">Sales ></h3>
-        <b-row class="b-row col-12">
-    <b-col  v-for="sale in sales" class="col-4">
-    <router-link :to="{ name: 'sale', params: { ID: sale.ID}}"><b-card class="product-card">
-        <b-card-title class="card-title">{{sale.type}}</b-card-title>
-        <b-card-text class="card-text">{{sale.email}}</b-card-text>
-        <b-button class="details-button" variant="secondary">Details</b-button>
-      </b-card></router-link>
-    </b-col>
-    </b-row>
+
     </b-container>
     <FooterMenu/>
     
@@ -23,7 +14,6 @@
 <script>
 import Navbar from '@/components/layout/Navbar.vue'
 import FooterMenu from '@/components/layout/FooterMenu.vue'
-import Router from 'vue-router'
 export default {
   name: 'home',
   mounted() {
