@@ -1,13 +1,12 @@
 <template>
   <div class="home">
-    <Navbar/>
+
     <FooterMenu/>
 
   </div>
 </template>
 
 <script>
-import Navbar from '@/components/layout/Navbar.vue'
 import FooterMenu from '@/components/layout/FooterMenu.vue'
 export default {
   name: 'home',
@@ -29,7 +28,6 @@ export default {
     )
   },
   components: {
-    Navbar,
     FooterMenu
   },
   data() {
