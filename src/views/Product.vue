@@ -1,5 +1,5 @@
 <template>
-  <div class="product container">
+  <b-container class="product">
     <div id="frame">
       <button @click="goBack()" id="floating-btn">‹</button>
        <router-link :to="{ name: 'productedit', params: { product: product}}"><button class="editBtn">✎</button></router-link>
@@ -15,7 +15,7 @@
         <hr class="product-line">
       </div>
       <FooterMenu/>
-    </div> 
+  </b-container>
 </template>
 
 <script>

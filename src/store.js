@@ -86,7 +86,6 @@ export default new Vuex.Store({
 
     },
     getProductsAction({commit} ) {
-      let v = this;
       let products = []
       let db = firebase.firestore()
       
@@ -99,7 +98,6 @@ export default new Vuex.Store({
           products.push(product)
         });
         commit('setProducts', products)
-        console.log(firebase.auth().currentUser.uid)
       })
 
     },

@@ -1,5 +1,5 @@
 <template>
-  <div class="product container">
+  <b-container class="product">
     <div id="frame">
       <router-link :to="{ name: 'product', params: { product: product}}"><button id="floating-btn">‹</button></router-link>
       <button @click="update()" class="editBtn">&#128190;</button>
@@ -20,7 +20,7 @@
         <span class="row"><h4>Ad Price</h4><span class="ml-auto"> <b-form-input v-model="product.price"></b-form-input></span></span>
         <hr class="product-line">
       </div>
-    </div> 
+  </b-container>
 </template>
 
 <script>
@@ -39,7 +39,6 @@ export default {
     methods: {
         update() {
             let v = this;
-            console.log(v.product)
              firebase.firestore().collection("products").doc(v.product.id).update(v.product);
              v.$router.push({path: '/'})
         }

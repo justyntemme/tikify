@@ -1,5 +1,5 @@
 <template>
-  <div class="product container">
+  <b-container class="product">
     <div id="frame">
       <router-link :to="{ name: 'home'}"><button id="floating-btn"><i class="fa fa-trash"></i></button></router-link>
       <button @click="save()" class="editBtn"><i class="fa fa-save"></i></button>
@@ -23,7 +23,7 @@
         <hr class="product-line">
       </div>
       <FooterMenu/>
-    </div> 
+  </b-container>
 </template>
 
 <script>
