@@ -1,5 +1,7 @@
 <template>
   <div class="about">
+        <link  rel="preload" type="text/css" href="~@/components/about.css">
+    <router-view/>
     <div class="home-header row">
       <div class="col-6 home-logo">
         <img class="nav-logo" src="@/assets/logo.png"/>

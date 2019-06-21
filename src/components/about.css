@@ -1,0 +1,42 @@
+h3 {
+    margin: 40px 0 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  a {
+    color: #42b983;
+  }
+  
+  .login-img {
+      height: 70px; 
+      width: 70px;
+      margin: 5px;
+  }
+  
+  .nav-logo {
+      height: 40px;
+      width: 90px;
+  }
+  
+  .nav-logo {
+      margin-top: 5px;
+  }
+  
+  
+  .navbar {
+      width: 100%;
+      background: #f8f9fa;
+      border-radius: 51px; 
+  }
+  
+  b-navbar {
+      background: #f8f9fa; 
+      border: 1px solid #FFFFFF; 
+      border-radius: 51px; 
+  }
