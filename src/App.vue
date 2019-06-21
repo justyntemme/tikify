@@ -15,7 +15,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-image: url(~@/assets/texture.png);
+  background-image: url(~@/assets/texture.jpg);
   background-repeat: no-repeat;
   background-position: center;;
 }
