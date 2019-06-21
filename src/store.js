@@ -6,8 +6,6 @@ import * as firebase from 'firebase'
 Vue.use(Vuex)
 
 
-
-
 export default new Vuex.Store({
   state: {
     user: '',

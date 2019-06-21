@@ -2,15 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import firebase from 'firebase'
 
-//Lazy loading
-const Home = () => import('@/views/Home.vue')
-const Login = () => import('@/views/Login.vue')
-const SignUp = () => import('@/views/SignUp.vue')
-const Product = () => import('@/views/Product.vue')
-const ProductEdit = () => import('@/views/ProductEdit.vue')
-const ProductCreate = () => import('@/views/ProductCreate.vue')
-const ProductList = () => import('@/views/ProductList.vue')
-const Sales = () => import('@/views/Sales.vue')
 
 Vue.use(Router)
 
@@ -21,69 +12,69 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
       meta: {
         requiresAuth: true
-      }
+      },
+      component: () => import('@/views/Home.vue')
     },
     {
       path: '/products',
       name: 'products',
-      component: ProductList,
       meta: {
         requiresAuth: true
-      }
+      },
+      component: () => import('@/views/ProductList.vue')
     },
     {
       path: '/sales',
       name: 'sales',
-      component: Sales,
       meta: {
         requiresAuth: true
-      }
+      },
+      component: () => import('@/views/Sales.vue')
     },
     {
       path: '/edit',
       name: 'productedit',
-      component: ProductEdit,
       props: {
         product: {}
-      }
+      },
+      component: () => import('@/views/ProductEdit.vue')
     },
     {
       path: '/product',
       name: 'product',
-      component: Product,
       meta: {
         requiresAuth: true
       },
       props: {
         product: {}
-      }
+      },
+      component: () => import('@/views/Product.vue')
     },
     {
       path: '/product/create',
       name: 'productcreate',
-      component: ProductCreate,
       meta: {
         requiresAuth: true
-      }
+      },
+      component: () => import('@/views/ProductCreate.vue')
     },
     {
       path: '/login',
       name: 'login',
-      component: Login,
       meta: {
         guest: true
-      }
+      },
+      component: () => import('@/views/Login.vue')
     },
     {
       path: '/signup',
       name: 'signup',
-      component: SignUp,
       meta: {
         guest: true
-      }
+      },
+      component: () => import(/* webpackChunkName: "about" */'@/views/SignUp.vue')
     },
     {
       path: '/about',
