@@ -47,15 +47,15 @@ input {
 }
 
 .product-card {
-    border-radius: 10px;
-    color: #f8f9fa;
-    background-image: url("~@/assets/pink-card.png");
-    background-position: center;
-    margin-bottom: 20px;
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-
+  background-image: url("~@/assets/pink-card.png");
+  z-index: 20;
+  margin: 5px;
+  background-position: center;
+  background-size: stretch;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  overflow:hidden;
+  text-align: -webkit-center;
 }
 
 .login-img {
