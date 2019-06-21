@@ -1,10 +1,8 @@
 <template>
-  <div class="home">
+  <b-container class="home">
     <News/>
-
     <FooterMenu/>
-
-  </div>
+  </b-container>
 </template>
 
 <script>
