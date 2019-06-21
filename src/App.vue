@@ -17,7 +17,7 @@
   color: #2c3e50;
   background-image: url(~@/assets/texture.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: center;;
 }
 #nav {
   padding: 30px;
