@@ -266,4 +266,13 @@
     margin-top: 5px;
 }
 
+@media (min-width: 1281px) {
+  
+  .about-box {
+    max-width: 32% !important;
+  }
+  
+}
+
+
 </style>
