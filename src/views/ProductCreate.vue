@@ -1,8 +1,8 @@
 <template>
   <div class="product container">
     <div id="frame">
-      <router-link :to="{ name: 'home'}"><button id="floating-btn">‹</button></router-link>
-      <button @click="save()" class="editBtn">&#128190;</button>
+      <router-link :to="{ name: 'home'}"><button id="floating-btn"><i class="fa fa-trash"></i></button></router-link>
+      <button @click="save()" class="editBtn"><i class="fa fa-save"></i></button>
       <div id="shape"></div>
             <b-form-textarea
             id="textarea"
@@ -22,13 +22,16 @@
         <span class="row"><h4>Ad Duration</h4><span class="ml-auto"> <b-form-input v-model="product.duration"></b-form-input></span></span>
         <hr class="product-line">
       </div>
+      <FooterMenu/>
     </div> 
 </template>
 
 <script>
 import firebase from 'firebase'
+import FooterMenu from '@/components/layout/FooterMenu.vue'
 export default {
     components: {
+      FooterMenu
 
     },
     data() {
@@ -37,7 +40,6 @@ export default {
         }
     },
      mounted() {
-        let v = this;
     },
     methods: {
         save() {

@@ -14,10 +14,12 @@
         <span class="row"><h4>Ad Price</h4><span class="ml-auto"><p>{{product.price}}</p></span></span>
         <hr class="product-line">
       </div>
+      <FooterMenu/>
     </div> 
 </template>
 
 <script>
+import FooterMenu from '@/components/layout/FooterMenu.vue'
 export default {
   name: 'product',
   props: {
@@ -28,6 +30,7 @@ export default {
     v.product = v.$route.params.product
   },
   components: {
+    FooterMenu
     
   },
   data() {
