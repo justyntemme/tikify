@@ -1,14 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import Login from './views/Login.vue'
-import SignUp from './views/SignUp.vue'
-import Product from './views/Product.vue'
-import ProductEdit from './views/ProductEdit.vue'
-import ProductCreate from './views/ProductCreate.vue'
-import ProductList from '@/views/ProductList.vue'
-import Sales from '@/views/Sales.vue'
 import firebase from 'firebase'
+
+//Lazy loading
+const Home = () => import('@/views/Home.vue')
+const Login = () => import('@/views/Login.vue')
+const SignUp = () => import('@/views/SignUp.vue')
+const Product = () => import('@/views/Product.vue')
+const ProductEdit = () => import('@/views/ProductEdit.vue')
+const ProductCreate = () => import('@/views/ProductCreate.vue')
+const ProductList = () => import('@/views/ProductList.vue')
+const Sales = () => import('@/views/Sales.vue')
 
 Vue.use(Router)
 
