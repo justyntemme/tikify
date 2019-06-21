@@ -3,10 +3,7 @@ module.exports = {
     [
       "minify", {
         "mangle": {
-          "exclude": []
-        },
-        "unsafe": {
-          "typeConstructors": false
+          "exclude": ["MyCustomError"]
         },
         "keepFnName": true
       },
