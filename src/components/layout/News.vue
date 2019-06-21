@@ -17,21 +17,21 @@
         </b-row>
         <h2>Sales and statistics</h2>
         <b-row>
-            <b-col>
+            <b-col class="col-6 stat-col">
                 <h3>Total Posts</h3>
                 <div class="stats">
                 
                 </div>
               
             </b-col>
-            <b-col>
-                <h3>Monthly Sales</h3>
+            <b-col class="col-6 stat-col">
+                <h3>New Posts</h3>
                 <div class="stats">
 
                 </div>
             
             </b-col>
-            <b-col>
+            <b-col class="col-6 stat-col">
                 <h3>Active Posts</h3>
                 <div class="stats">
 

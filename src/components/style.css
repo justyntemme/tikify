@@ -390,7 +390,9 @@ h2 {
   background-size: stretch;
   background-repeat: no-repeat;
   border-radius: 40px;
-  overflow:hidden
+  overflow:hidden;
+  text-align: -webkit-center;
+  
 }
 
 .news-body {
@@ -402,8 +404,8 @@ h2 {
 
 
 .stats {
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
   text-align: center;
   vertical-align: middle;
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -422,8 +424,16 @@ h2 {
   background-repeat: no-repeat;
 } 
 
-.news-row {
-
+.stat-col {
+  text-align: -webkit-center;
 }
 
+.news-row {
+  text-align: -webkit-center;
+}
+
+.news-box {
+  margin-right: 15px;
+  
+}
 
