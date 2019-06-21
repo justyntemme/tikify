@@ -10,7 +10,7 @@
             :variant="msgVariant"
             @dismissed="dismissCountDown=0"
             @dismiss-count-down="countDownChanged">{{errorMsg}}</b-alert>
-    <b-button @click="login" class="login-btn" pill variant="primary">Login</b-button>
+    <b-button @click="login" class="home-nav-btn" pill variant="primary">Login</b-button>
     <p>You don't have an account? Signup <a href="/signup">Here</a></p>
   </div>
 </template>
@@ -116,6 +116,23 @@ h2 {
   margin-top: 5px;
   height: 40px;
   width: 90px;
+}
+
+.home-nav-btn {
+  background-image: url("~@/assets/gradiant-button.png");
+  background-position: center;
+  background-size: stretch;
+  margin: 5px;
+  font-family: Arimo; 
+  font-size: 8px; 
+  font-weight: bold; 
+  font-style: normal; 
+  text-decoration: none; 
+  text-align: center; 
+  color: #FFFFFF; 
+  border-radius: 10px; 
+  border: 0px;
+  box-shadow:2px 2px 4px 0px rgba(0,0,0,0.5); 
 }
 
 </style>

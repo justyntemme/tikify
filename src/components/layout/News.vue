@@ -17,7 +17,7 @@
         </b-row>
         <img class="divider-img" src="@/assets/bottom-border.jpeg">
         <h2>Sales and statistics</h2>
-        <b-row>
+        <b-row class="stats-row">
             <b-col class="col-6 stat-col">
                 <h3>Total Posts</h3>
                 <div class="stats">
@@ -99,6 +99,10 @@ export default {
 .news-box {
   margin-right: 15px;
   
+}
+
+.stats-row {
+  margin-bottom: 100px;
 }
 
 </style>

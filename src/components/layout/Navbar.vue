@@ -1,8 +1,7 @@
 <template>
-    <div class="navbar">
+    <div class="navbar-div">
       <b-navbar type="light" variant="light">
-        <b-button @click="goBack" class="back-btn" pill variant="info">‹</b-button>
-        <b-nav-item class="ml-auto " href="#"><img class="nav-logo" src="@/assets/logo.png"/></b-nav-item>
+        <img class="nav-logo" src="@/assets/logo.png"/>
       </b-navbar>
     </div>
 </template>
@@ -68,6 +67,18 @@ h2 {
   margin-top: 5px;
   height: 40px;
   width: 90px;
+}
+
+.navbar {
+  width: 100%;
+  top: 0px;
+  margin-top: -10px;
+  margin-bottom: 30px;
+  border-radius: 0px 0px 10px 10px;
+  -webkit-box-shadow: -1px 10px 26px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 10px 26px -2px rgba(0,0,0,0.75);
+  box-shadow: -1px 10px 26px -2px rgba(0,0,0,0.75);
+
 }
 
 

@@ -1,11 +1,13 @@
 <template>
   <b-container class="home">
+    <Navbar/>
     <News/>
     <FooterMenu/>
   </b-container>
 </template>
 
 <script>
+import Navbar from '@/components/layout/Navbar.vue'
 import FooterMenu from '@/components/layout/FooterMenu.vue'
 import News from '@/components/layout/News.vue'
 export default {
@@ -29,7 +31,8 @@ export default {
   },
   components: {
     FooterMenu,
-    News
+    News,
+    Navbar
   },
   data() {
     return {
