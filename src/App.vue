@@ -10,6 +10,8 @@
 
 <style lang="scss">
 #app {
+  width: 100%;
+  overflow: hidden;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,7 +19,9 @@
   color: #2c3e50;
   background-image: url(~@/assets/texture.jpg);
   background-repeat: no-repeat;
-  background-position: center;;
+  background-position: top;
+
+
 }
 #nav {
   padding: 30px;

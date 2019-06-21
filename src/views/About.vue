@@ -99,7 +99,7 @@
   background-size: stretch;
   margin: 5px;
   font-family: Arimo; 
-  font-size: 10px; 
+  font-size: 8px; 
   font-weight: bold; 
   font-style: normal; 
   text-decoration: none; 
@@ -117,7 +117,7 @@
     border-width: 8.333px;
     margin: 5px;
     font-family: Arimo; 
-    font-size: 10px; 
+    font-size: 8px; 
     font-weight: bold; 
     font-style: normal; 
     text-decoration: none; 
