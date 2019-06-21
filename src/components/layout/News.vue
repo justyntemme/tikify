@@ -2,48 +2,35 @@
     <b-container class="news">
         <h2>Top News</h2>
         <b-row>
-            <b-col class="about-box">
-                <b-card>
-                    <b-card-header>First News Header </b-card-header>
-                    <b-card-body>Lorm ipsum inded general audios</b-card-body>
-                    <b-card-img src="~@/assets/logo.png"></b-card-img>
-                </b-card>
+            <b-col class="news-box">
+                <div class="news-body">
+                <h3>News Header</h3>
+                <p>The latest update of tikify brings us feature such as ...</p>
+                </div>
             </b-col>
-            <b-col class="about-box">
-                <b-card>
-                    <b-card-header>First News Header </b-card-header>
-                    <b-card-body>Lorm ipsum inded general audios</b-card-body>
-                    <b-card-img src="~@/assets/logo.png"></b-card-img>
-                </b-card>
-            </b-col>
-            <b-col class="about-box">
-                <b-card>
-                    <b-card-header>First News Header </b-card-header>
-                    <b-card-body>Lorm ipsum inded general audios</b-card-body>
-                    <b-card-img src="~@/assets/logo.png"></b-card-img>
-                </b-card>
+            <b-col class="news-box">
+                <div class="news-body">
+                <h3>News Header</h3>
+                <p>The latest update of tikify brings us feature such as ...</p>
+                </div>
             </b-col>
         </b-row>
         <h2>Sales and statistics</h2>
         <b-row>
-            <b-col class="about-box">
-                <b-card class="about-box">
-                    <b-card-header>Total Sales </b-card-header>
-                    <b-card-body>Lorm ipsum inded general audios</b-card-body>
-                </b-card>
+            <b-col class="news-box">
+                <div class="news-body">
+                <h3>News Header</h3>
+                <p>The latest update of tikify brings us feature such as ...</p>
+                </div>
+
             </b-col>
-            <b-col class="about-box">
-                <b-card>
-                    <b-card-header>Total Sales This Month</b-card-header>
-                    <b-card-body>Lorm ipsum inded general audios</b-card-body>
-                </b-card>
+            <b-col class="news-box">
+                <div class="news-body">
+                <h3>News Header</h3>
+                <p>The latest update of tikify brings us feature such as ...</p>
+                </div>
             </b-col>
-            <b-col class="about-box">
-                <b-card>
-                    <b-card-header>Open Orders </b-card-header>
-                    <b-card-body>Lorm ipsum inded general audios</b-card-body>
-                </b-card>
-            </b-col>
+
         </b-row>
     </b-container>
 </template>
@@ -57,4 +44,15 @@ export default {
 
 <style>
 
+.news-box {
+    background-image: url("~@/assets/pink-card.png");
+    z-index: 20;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 40px;
+}
+
+.news-body {
+    margin-top: 40px;
+}
 </style>

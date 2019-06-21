@@ -13,14 +13,14 @@
     </div>
     <div class="row">
       <div class='col-4'>
-        <b-button class="home-nav-btn-red" pill variant="primary">I'm an Influencer</b-button>
+        <b-button class="home-nav-btn" pill variant="primary">I'm an Influencer</b-button>
       </div>
 
     <div class="col-4 phone">
       <img class="phone-img" src="@/assets/phone.jpeg"/>
     </div>
      <div class='col-4'>
-       <b-button class="home-nav-btn-red" pill variant="primary">I'm an Artist</b-button>
+       <b-button class="home-nav-btn" pill variant="primary">I'm an Artist</b-button>
       </div>
 
     </div>

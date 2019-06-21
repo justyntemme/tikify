@@ -211,19 +211,22 @@ input {
     z-index: 10;
 }
 
+
 .home-nav-btn {
-    color: #F44336; 
-    margin: 5px;
-    font-family: Arimo; 
-    font-size: 15px; 
-    font-weight: bold; 
-    font-style: normal; 
-    text-decoration: none; 
-    text-align: center; 
-    background: #FFFFFF; 
-    border: 2px solid #F44336; 
-    border-radius: 10px; 
-    box-shadow:2px 2px 4px 0px rgba(0,0,0,0.5); 
+  background-image: url("~@/assets/gradiant-button.png");
+  background-position: center;
+  background-size: stretch;
+  margin: 5px;
+  font-family: Arimo; 
+  font-size: 10px; 
+  font-weight: bold; 
+  font-style: normal; 
+  text-decoration: none; 
+  text-align: center; 
+  color: #FFFFFF; 
+  border-radius: 10px; 
+  border: 0px;
+  box-shadow:2px 2px 4px 0px rgba(0,0,0,0.5); 
 }
 
 .home-nav-btn-red {
