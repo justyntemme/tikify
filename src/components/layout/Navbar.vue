@@ -25,7 +25,7 @@ export default {
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style scoped lang="css">
 h3 {
   margin: 40px 0 0;
 }
@@ -41,4 +41,31 @@ a {
   color: #42b983;
 }
 
+.login-img {
+    height: 70px; 
+    width: 70px;
+    margin: 5px;
+}
+
+.nav-logo {
+    height: 40px;
+    width: 90px;
+}
+
+.nav-logo {
+    margin-top: 5px;
+}
+
+
+.navbar {
+    width: 100%;
+    background: #f8f9fa;
+    border-radius: 51px; 
+}
+
+b-navbar {
+    background: #f8f9fa; 
+    border: 1px solid #FFFFFF; 
+    border-radius: 51px; 
+}
 </style>

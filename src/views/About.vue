@@ -92,4 +92,181 @@
   background-position: center;
   height: 341px; 
 }
+.home-nav-btn {
+  background-image: url("~@/assets/gradiant-button.png");
+  background-position: center;
+  background-size: stretch;
+  margin: 5px;
+  font-family: Arimo; 
+  font-size: 10px; 
+  font-weight: bold; 
+  font-style: normal; 
+  text-decoration: none; 
+  text-align: center; 
+  color: #FFFFFF; 
+  border-radius: 10px; 
+  border: 0px;
+  box-shadow:2px 2px 4px 0px rgba(0,0,0,0.5); 
+}
+
+.home-nav-btn-red {
+      
+    background-color: rgb(249, 35, 104);
+    border-color: rgb(249, 35, 104);
+    border-width: 8.333px;
+    margin: 5px;
+    font-family: Arimo; 
+    font-size: 10px; 
+    font-weight: bold; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: center; 
+    color: #FFFFFF; 
+    border: 2px solid #F44336; 
+    border-radius: 10px; 
+    box-shadow:2px 2px 4px 0px rgba(0,0,0,0.5); 
+
+}
+
+
+.get-started {
+  color: #000000; 
+  font-size: 40px; 
+  font-weight: bold; 
+  font-style: normal; 
+  text-decoration: none; 
+  text-align: center; 
+  margin: 10%;
+}
+.welcome {
+    margin-top: 5em;
+}
+
+.login-btn {
+    background: #f8f9fa;
+    color: #E91E63;
+    border: 0px;
+    margin: 5px;
+}
+
+.signup-btn {
+    background: #f8f9fa;
+    color: #E91E63;
+    border: 0px;
+}
+
+  .search-for-influencers { 
+    width: 15em; 
+  
+    color: #DDDDDD; 
+    font-family: 'Source Sans Pro'; 
+    font-size: 17px; 
+    font-weight: bold; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: center; 
+    background: rgba(33,150,243,0.4); 
+    border: none; 
+    border-radius: 10px; 
+  }
+  
+  .hire-influencer {
+    width: 15em; 
+  
+    color: #DDDDDD; 
+    font-family: 'Source Sans Pro'; 
+    font-size: 17px; 
+    font-weight: bold; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: center; 
+    background: rgba(156,39,176,0.4); 
+    border: none; 
+    border-radius: 10px; 
+  }
+  
+  .posted {
+    width: 15em; 
+ 
+    color: #DDDDDD; 
+    font-family: 'Source Sans Pro'; 
+    font-size: 17px; 
+    font-weight: bold; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: center; 
+    background: rgba(233,30,99,0.3); 
+    border: none; 
+    border-radius: 10px; 
+  }
+  .search-btn {
+    margin-top: -1em;
+    color: #DDDDDD; 
+    font-family: 'Source Sans Pro'; 
+    font-size: 17px; 
+    font-weight: bold; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: center; 
+    background: #2196F3; 
+    border: 4px solid #FFFFFF; 
+    border-radius: 140px;
+  
+  }
+  
+  .search-img {
+    width: 7em; 
+    height: 77px; 
+    margin: 1em;
+  }
+  
+  .about-box {
+    margin: .5em;
+  }
+  
+  .about-row {
+    margin: 1em;
+  }
+  
+  
+  .about-heading { 
+    color: #333333; 
+    font-family: Arimo; 
+    font-size: 15px;  
+    line-height: 1px; 
+    padding: 5px; 
+  }
+  .about-text { 
+  color: #333333; 
+  font-family: Arimo; 
+  font-size: 12px; 
+  padding: 5px; 
+  }
+
+
+
+
+.divider-img {
+  width: 100%;
+}
+
+.home {
+  height: 10000px;
+}
+
+.home-nav-btn {
+  background-image: url("~@/assets/gradiant-button.png");
+  
+}
+
+.nav-logo {
+    height: 40px;
+    width: 90px;
+}
+
+.nav-logo {
+    margin-top: 5px;
+}
+
 </style>
+

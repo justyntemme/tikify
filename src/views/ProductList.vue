@@ -46,3 +46,72 @@ export default {
 }
 </script>
 
+<style scoped>
+.card-title {
+    font-size: 12px;
+    width: 100%;
+    margin-top: 5px;
+    color: black;
+}
+.card-body {
+    width: 100%;
+    padding: 0px;
+    color: black;
+}
+.sales-title {
+    font-size: 12px;
+    color: #f44336;
+    text-align: left;
+
+}
+.product-title {
+    font-size: 12px;
+    color: #f44336;
+    text-align: left;
+}
+
+.card-text {
+    font-size: 10px;
+}
+
+.details-button {
+    font-size: 10px;
+    background-color: #f8f9fa;
+    border: 0px;
+    border-radius: 20px;
+    color: black;
+    margin-bottom: 5px;
+
+}
+
+.product-card {
+  background-image: url("~@/assets/pink-card.png");
+  z-index: 20;
+  margin: 5px;
+  background-position: center;
+  background-size: stretch;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  overflow:hidden;
+  text-align: -webkit-center;
+}
+
+.product-header {
+    border: 1px solid;
+    border-color:#f44336;
+    background-color: #dddddd;
+    border-radius: 30px;
+    min-height: 200px;
+
+}
+
+.product-line {
+    border-color: #f44336;
+}
+
+* {
+    font-family: sans-serif;
+  }
+  
+</style>
+

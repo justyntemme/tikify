@@ -51,6 +51,54 @@ export default {
 </script>
 
 <style>
+.news-box {
+  background-image: url("~@/assets/pink-card.png");
+  z-index: 20;
+  background-size: stretch;
+  background-repeat: no-repeat;
+  border-radius: 40px;
+  overflow:hidden;
+  text-align: -webkit-center;
+  
+}
 
+.news-body {
+  margin-top: 40px;
+  overflow: hidden;
+  margin-right: -10px;
+  margin-left: 20px;
+}
+
+
+.stats {
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.stats i {
+  top: 40px;
+}
+.stats {
+  background-image: url("~@/assets/circle.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+} 
+
+.stat-col {
+  text-align: -webkit-center;
+}
+
+.news-row {
+  text-align: -webkit-center;
+}
+
+.news-box {
+  margin-right: 15px;
+  
+}
 
 </style>

@@ -26,3 +26,35 @@ export default {
     
 }
 </script>
+
+<style scoped>
+
+.footer-menu-btn {
+  background: white;
+  color: gray;
+  border: 0px;
+}
+
+.footer {
+    position: fixed;
+    border-radius: 20px 20px 0px 0px;
+    bottom: 0px;
+    background: white;
+    padding-top: 20px;
+    border-top: gray;
+
+}
+
+.footer-menu-col {
+  margin-bottom: 10px;
+}
+
+.footer {
+    width: 100%;
+    z-index: 10;
+    -webkit-box-shadow: 0px -9px 19px 2px rgba(0,0,0,0.39);
+    -moz-box-shadow: 0px -9px 19px 2px rgba(0,0,0,0.39);
+    box-shadow: 0px -9px 19px 2px rgba(0,0,0,0.39);
+}
+</style>
+
