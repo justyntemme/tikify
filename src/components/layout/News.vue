@@ -15,6 +15,7 @@
                 </div>
             </b-col>
         </b-row>
+        <img class="divider-img" src="@/assets/bottom-border.jpeg">
         <h2>Sales and statistics</h2>
         <b-row>
             <b-col class="col-6 stat-col">

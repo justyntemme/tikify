@@ -46,13 +46,6 @@ export default {
 
 <style>
 
-.home {
-  height: 10000px;
-}
 
-.home-nav-btn {
-  background-image: url("~@/assets/gradiant-button.png");
-  
-}
 
 </style>

@@ -437,3 +437,16 @@ h2 {
   
 }
 
+.divider-img {
+  width: 100%;
+}
+
+.home {
+  height: 10000px;
+}
+
+.home-nav-btn {
+  background-image: url("~@/assets/gradiant-button.png");
+  
+}
+
