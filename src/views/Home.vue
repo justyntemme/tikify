@@ -1,12 +1,7 @@
 <template>
   <div class="home">
     <Navbar/>
-    <b-container class="">
-
-
-    </b-container>
     <FooterMenu/>
-    
 
   </div>
 </template>
@@ -47,3 +42,10 @@ export default {
   }
 }
 </script>
+
+<style>
+
+.home {
+  height: 10000px;
+}
+</style>

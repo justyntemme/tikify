@@ -208,6 +208,7 @@ input {
 
 .footer {
     width: 100%;
+    z-index: 10;
 }
 
 .home-nav-btn {
@@ -261,10 +262,23 @@ h1 {
 h2 {
     font-family: 'Shadows Into Light', cursive;
 }
+.footer-menu-btn {
+  background: white;
+  color: gray;
+  border: 0px;
+}
 
 .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0px;
+    background: white;
+    padding-top: 20px;
+    border-top: gray;
+
+}
+
+.footer-menu-col {
+  margin-bottom: 10px;
 }
 
 
