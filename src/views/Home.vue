@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <News/>
 
     <FooterMenu/>
 
@@ -8,6 +9,7 @@
 
 <script>
 import FooterMenu from '@/components/layout/FooterMenu.vue'
+import News from '@/components/layout/News.vue'
 export default {
   name: 'home',
   mounted() {
@@ -28,7 +30,8 @@ export default {
     )
   },
   components: {
-    FooterMenu
+    FooterMenu,
+    News
   },
   data() {
     return {
