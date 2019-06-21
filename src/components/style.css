@@ -225,6 +225,25 @@ input {
     box-shadow:2px 2px 4px 0px rgba(0,0,0,0.5); 
 }
 
+.home-nav-btn-red {
+      
+    background-color: rgb(249, 35, 104);
+    border-color: rgb(249, 35, 104);
+    border-width: 8.333px;
+    margin: 5px;
+    font-family: Arimo; 
+    font-size: 10px; 
+    font-weight: bold; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: center; 
+    color: #FFFFFF; 
+    border: 2px solid #F44336; 
+    border-radius: 10px; 
+    box-shadow:2px 2px 4px 0px rgba(0,0,0,0.5); 
+
+}
+
 .nav-logo {
     margin-top: 5px;
 }
