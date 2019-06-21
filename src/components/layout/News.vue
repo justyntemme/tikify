@@ -4,32 +4,20 @@
         <b-row>
             <b-col class="news-box">
                 <div class="news-body">
-                <h3>News Header</h3>
+                <h3>News 1</h3>
                 <p>The latest update of tikify brings us feature such as ...</p>
                 </div>
             </b-col>
             <b-col class="news-box">
                 <div class="news-body">
-                <h3>News Header</h3>
+                <h3>News 2</h3>
                 <p>The latest update of tikify brings us feature such as ...</p>
                 </div>
             </b-col>
         </b-row>
         <h2>Sales and statistics</h2>
         <b-row>
-            <b-col class="news-box">
-                <div class="news-body">
-                <h3>News Header</h3>
-                <p>The latest update of tikify brings us feature such as ...</p>
-                </div>
 
-            </b-col>
-            <b-col class="news-box">
-                <div class="news-body">
-                <h3>News Header</h3>
-                <p>The latest update of tikify brings us feature such as ...</p>
-                </div>
-            </b-col>
 
         </b-row>
     </b-container>
@@ -50,9 +38,11 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 40px;
+
 }
 
 .news-body {
     margin-top: 40px;
+    
 }
 </style>
