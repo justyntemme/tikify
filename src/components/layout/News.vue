@@ -60,7 +60,8 @@ export default {
   overflow:hidden;
   text-align: -webkit-center;
   padding-bottom: 35px;
-  
+
+    
 }
 
 .news-body {

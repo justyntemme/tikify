@@ -39,6 +39,7 @@ export default {
     position: fixed;
     border-radius: 20px 20px 0px 0px;
     bottom: 0px;
+    left: 0px;
     background: white;
     padding-top: 20px;
     border-top: gray;
