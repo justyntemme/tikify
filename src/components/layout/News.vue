@@ -52,21 +52,20 @@ export default {
 
 <style>
 .news-box {
-  background-image: url("~@/assets/pink-card.png");
+  background-image: url("~@/assets/card.svg");
   z-index: 20;
-  background-size: stretch;
+  background-size: cover;
+  min-height: 8em;
   background-repeat: no-repeat;
-  border-radius: 40px;
   overflow:hidden;
   text-align: -webkit-center;
+  padding-bottom: 35px;
   
 }
 
 .news-body {
   margin-top: 40px;
-  overflow: hidden;
-  margin-right: -10px;
-  margin-left: 20px;
+  text-align: -webkit-center;
 }
 
 
@@ -103,6 +102,10 @@ export default {
 
 .stats-row {
   margin-bottom: 100px;
+}
+
+.divider-img {
+  width: 100%
 }
 
 </style>
