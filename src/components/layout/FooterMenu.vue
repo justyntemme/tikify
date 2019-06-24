@@ -35,6 +35,12 @@ export default {
   border: 0px;
 }
 
+
+
+.footer-menu-col {
+  margin-bottom: 10px;
+}
+
 .footer {
     position: fixed;
     border-radius: 20px 20px 0px 0px;
@@ -43,14 +49,6 @@ export default {
     background: white;
     padding-top: 20px;
     border-top: gray;
-
-}
-
-.footer-menu-col {
-  margin-bottom: 10px;
-}
-
-.footer {
     width: 100%;
     z-index: 10;
     -webkit-box-shadow: inset 0px -15px 27px -20px rgba(0,0,0,0.32);

@@ -5,13 +5,13 @@
             <b-col v-for="sale in sales"  class="news-box col-md-2 col-sm-6 col-mx-auto">
                 <div class="news-body">
                 <h3>{{sale.type}}</h3>
-                <p>{{sale.email}}</p>
+                <p>{{sale.price}}</p>
                 </div>
             </b-col>
         </b-row>
 
         <img class="divider-img" src="@/assets/bottom-border.jpeg">
-        <h2>Products</h2>
+        <h2>Posts for Sale</h2>
         <b-row class="news-row scrolling-wrapper">
             <b-col v-for="product in products"  class="news-box col-md-2 col-sm-6 col-mx-auto">
                 <div class="news-body">
@@ -20,6 +20,10 @@
                 </div>
             </b-col>
         </b-row>
+
+        <img class="divider-img-bottom" src="@/assets/background.svg">
+        
+        
         
     </div>
 </template>
@@ -82,12 +86,11 @@ export default {
   background-repeat: no-repeat;
 } 
 
-.stat-col {
-  text-align: -webkit-center;
-}
-
 .news-row {
+  margin-top: 5%;
+  margin-bottom: 5%;
   text-align: -webkit-center;
+  
 }
 
 .news-box {
@@ -96,10 +99,11 @@ export default {
   background-position: center;
   text-align: -webkit-center;
   padding-bottom: 35px;
-flex: 0 0 auto;
+  flex: 0 0 auto;
   padding-left: 0px;
   padding-right: 0px;
   width: 40%;
+
 
 }
 @media (min-width: 1081px) {
@@ -115,15 +119,24 @@ flex: 0 0 auto;
 }
 
 .divider-img {
-  width: 100%
+  width: 100%;
+  margin-top: -50px;
+}
+.divider-img-bottom {
+  width: 100%;
+  margin-top: .5em;
 }
 
 .scrolling-wrapper {
   display: flex;
   flex-wrap: nowrap;
-  overflow-x: auto;
-
-
+  overflow-x: scroll;
 }
 
+h2 {
+  justify-self: left;
+  display: -webkit-box;
+  margin-left: 10px;
+  
+}
 </style>
