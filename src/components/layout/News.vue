@@ -9,31 +9,18 @@
                 </div>
             </b-col>
         </b-row>
+
         <img class="divider-img" src="@/assets/bottom-border.jpeg">
-        <h2>Sales and Statistics</h2>
-        <b-row class="stats-row">
-            <b-col class="col-6 stat-col">
-                <h3>Total Posts</h3>
-                <div class="stats">
-                
+        <h2>Products</h2>
+        <b-row class="news-row scrolling-wrapper">
+            <b-col v-for="product in products"  class="news-box col-md-2 col-sm-6 col-mx-auto">
+                <div class="news-body">
+                <h3>{{product.type}}</h3>
+                <p>{{product.price}}</p>
                 </div>
-              
-            </b-col>
-            <b-col class="col-6 stat-col">
-                <h3>New Posts</h3>
-                <div class="stats">
-
-                </div>
-            
-            </b-col>
-            <b-col class="col-6 stat-col">
-                <h3>Active Posts</h3>
-                <div class="stats">
-
-                </div>
-          
             </b-col>
         </b-row>
+        
     </div>
 </template>
 
@@ -42,12 +29,14 @@ export default {
   data() {
     return {
       sales: {},
+      products: {}
     }
   },
     components: {},
     mounted() {
     let v = this;
     v.$store.dispatch('getSalesAction');
+    v.$store.dispatch('getProductsAction');
     this.$store.watch(
         state=>state.products,
         (data) => {

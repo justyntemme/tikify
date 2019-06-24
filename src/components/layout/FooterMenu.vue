@@ -53,8 +53,9 @@ export default {
 .footer {
     width: 100%;
     z-index: 10;
--webkit-box-shadow: inset 0px -15px 27px -20px rgba(0,0,0,0.32);
--moz-box-shadow: inset 0px -15px 27px -20px rgba(0,0,0,0.32);
-box-shadow: inset 0px -15px 27px -20px rgba(0,0,0,0.32);
+    -webkit-box-shadow: inset 0px -15px 27px -20px rgba(0,0,0,0.32);
+    -moz-box-shadow: inset 0px -15px 27px -20px rgba(0,0,0,0.32);
+    box-shadow: inset 0px -15px 27px -20px rgba(0,0,0,0.32);
+}
 </style>
 
