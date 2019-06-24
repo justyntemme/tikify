@@ -1,9 +1,9 @@
 <template>
-  <b-container class="home">
+  <div class="home">
     <Navbar/>
     <News/>
     <FooterMenu/>
-  </b-container>
+  </div>
 </template>
 
 <script>

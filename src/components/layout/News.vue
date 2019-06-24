@@ -1,5 +1,5 @@
 <template>
-    <b-container class="news">
+    <div class="news">
         <h2>Top News</h2>
         <b-row class="news-row">
             <b-col class="news-box">
@@ -16,7 +16,7 @@
             </b-col>
         </b-row>
         <img class="divider-img" src="@/assets/bottom-border.jpeg">
-        <h2>Sales and statistics</h2>
+        <h2>Sales and Statistics</h2>
         <b-row class="stats-row">
             <b-col class="col-6 stat-col">
                 <h3>Total Posts</h3>
@@ -40,7 +40,7 @@
           
             </b-col>
         </b-row>
-    </b-container>
+    </div>
 </template>
 
 <script>
