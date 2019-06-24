@@ -1,5 +1,6 @@
 <template>
-  <b-container class="product">
+  <div class="product">
+    <b-container>
     <div id="frame">
       <router-link :to="{ name: 'home'}"><button id="floating-btn"><i class="fa fa-trash"></i></button></router-link>
       <button @click="save()" class="editBtn"><i class="fa fa-save"></i></button>
@@ -7,23 +8,26 @@
             <b-form-textarea
             id="textarea"
             v-model="product.info"
-            placeholder="Product Information..."
-            rows="4"
+            placeholder="What kind of Tik Tok post are you offering? Describe the video you’ll be making here!"
+            rows="10"
             max-rows="10"
             ></b-form-textarea>
        
       </div>
       <br>
       <div class="col-12">
-        <span class="row"><h4>Advertisement Type</h4> <span class="ml-auto"> <b-form-input v-model="product.type"></b-form-input></span></span>
+        <span class="row"><h4>Advertisement Type</h4>  <i class="fa fa-question-circle"/> <span class="ml-auto"> <b-form-input v-model="product.type"></b-form-input></span></span>
         <hr class="product-line">
-        <span class="row"><h4>Ad Price</h4><span class="ml-auto"> <b-form-input v-model="product.price"></b-form-input></span></span>
+        <span class="row"><h4>Ad Price</h4>  <i class="fa fa-question-circle"/> <span class="ml-auto"><b-form-input v-model="product.price"></b-form-input></span></span>
         <hr class="product-line">
-        <span class="row"><h4>Ad Duration</h4><span class="ml-auto"> <b-form-input v-model="product.duration"></b-form-input></span></span>
+        <span class="row"><h4>Ad Duration</h4> <i class="fa fa-question-circle"/> <span class="ml-auto"> <b-form-input v-model="product.duration"></b-form-input></span></span>
         <hr class="product-line">
       </div>
+    </b-container>
+      <img class="divider-img-bottom" src="@/assets/background.svg">
       <FooterMenu/>
-  </b-container>
+      
+  </div>
 </template>
 
 <script>
@@ -122,5 +126,15 @@ export default {
     color: #E91E63;
     border: 0px;
 }
+
+.divider-img-bottom {
+  width: 100%;
+  margin-top: .5em;
+}
+
+i {
+  margin-left: 4%;
+}
+
 </style>
 
