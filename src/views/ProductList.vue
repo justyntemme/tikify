@@ -2,7 +2,7 @@
 <b-container>
     <h3 class="product-title ">Products ></h3>
     <b-row class="b-row col-12 align-items-center">
-        <b-col  v-for="product in products" class="col-6 product-card-col justify-content-center">
+        <b-col  v-for="product in products" class="col-sm-4 product-card-col justify-content-center">
             <router-link :to="{ name: 'product', params: { product: product}}"><div class="product-card">
             <h3 class="card-title">{{product.type}}</h3>
             <p class="card-text">{{product.price}}</p>
@@ -76,12 +76,10 @@ export default {
 
 .product-card-col {
   background-image: url("~@/assets/card.svg");
-  min-height: 6em;
+
   border: 0px;
   background-position: center;
-  background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 20px;
   text-align: -webkit-center;
   margin-top: 10px;
 

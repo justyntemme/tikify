@@ -1,17 +1,11 @@
 <template>
     <div class="news">
-        <h2>Top News</h2>
-        <b-row class="news-row">
-            <b-col class="news-box">
+        <h2>Sales</h2>
+        <b-row class="news-row scrolling-wrapper">
+            <b-col v-for="sale in sales"  class="news-box col-md-2 col-sm-6 col-mx-auto">
                 <div class="news-body">
-                <h3>News 1</h3>
-                <p>The latest update of tikify brings us feature such as ...</p>
-                </div>
-            </b-col>
-            <b-col class="news-box">
-                <div class="news-body">
-                <h3>News 2</h3>
-                <p>The latest update of tikify brings us feature such as ...</p>
+                <h3>{{sale.type}}</h3>
+                <p>{{sale.email}}</p>
                 </div>
             </b-col>
         </b-row>
@@ -45,28 +39,39 @@
 
 <script>
 export default {
-    components: {}
+  data() {
+    return {
+      sales: {},
+    }
+  },
+    components: {},
+    mounted() {
+    let v = this;
+    v.$store.dispatch('getSalesAction');
+    this.$store.watch(
+        state=>state.products,
+        (data) => {
+            this.products = data;
+        }
+    )
+    this.$store.watch(
+      state=>state.sales,
+        (data) => {
+            this.sales = data;
+        }
+    )
+  },
 
 }
 </script>
 
 <style>
-.news-box {
-  background-image: url("~@/assets/card.svg");
-  z-index: 20;
-  background-size: cover;
-  min-height: 8em;
-  background-repeat: no-repeat;
-  overflow:hidden;
-  text-align: -webkit-center;
-  padding-bottom: 35px;
 
-    
-}
 
 .news-body {
   margin-top: 40px;
   text-align: -webkit-center;
+  width: 50%;
 }
 
 
@@ -97,7 +102,22 @@ export default {
 }
 
 .news-box {
-  margin-right: 15px;
+  background-image: url("~@/assets/card.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: -webkit-center;
+  padding-bottom: 35px;
+flex: 0 0 auto;
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 40%;
+
+}
+@media (min-width: 1081px) {
+  
+  .news-box {
+    padding-bottom: 250px;
+  }
   
 }
 
@@ -107,6 +127,14 @@ export default {
 
 .divider-img {
   width: 100%
+}
+
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+
 }
 
 </style>
