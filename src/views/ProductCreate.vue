@@ -1,28 +1,23 @@
 <template>
   <div class="product">
     <b-container>
-    <div id="frame">
-      <router-link :to="{ name: 'home'}"><button id="floating-btn"><i class="fa fa-trash"></i></button></router-link>
-      <button @click="save()" class="editBtn"><i class="fa fa-save"></i></button>
-      <div id="shape"></div>
+      <b-row>
+        <b-col class="col-md-12">
+          <img class="create-listing-block" src="@/assets/create-listing-block.svg"/>
+          <br>
+            <input type="text" >
+            <input type="text" >
             <b-form-textarea
-            id="textarea"
-            v-model="product.info"
-            placeholder="What kind of Tik Tok post are you offering? Describe the video you’ll be making here!"
-            rows="10"
-            max-rows="10"
-            ></b-form-textarea>
-       
-      </div>
-      <br>
-      <div class="col-12">
-        <span class="row"><h4>Advertisement Type</h4>  <i class="fa fa-question-circle"/> <span class="ml-auto"> <b-form-input v-model="product.type"></b-form-input></span></span>
-        <hr class="product-line">
-        <span class="row"><h4>Ad Price</h4>  <i class="fa fa-question-circle"/> <span class="ml-auto"><b-form-input v-model="product.price"></b-form-input></span></span>
-        <hr class="product-line">
-        <span class="row"><h4>Ad Duration</h4> <i class="fa fa-question-circle"/> <span class="ml-auto"> <b-form-input v-model="product.duration"></b-form-input></span></span>
-        <hr class="product-line">
-      </div>
+              id="textarea"
+              v-model="product.info"
+              placeholder="Enter something..."
+              rows="4"
+              max-rows="10"
+              ></b-form-textarea>
+
+
+        </b-col>
+      </b-row>
     </b-container>
       <img class="divider-img-bottom" src="@/assets/background.svg">
       <FooterMenu/>
@@ -134,6 +129,15 @@ export default {
 
 i {
   margin-left: 4%;
+}
+
+input {
+  border: 2px solid black;
+}
+
+.create-listing-block {
+  height: 50%;
+  margin-top: 10%;
 }
 
 </style>
