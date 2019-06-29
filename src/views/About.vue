@@ -72,7 +72,11 @@
       </b-row>
 
     </b-container>
+  <div class="footer">
+    <img src="@/assets/bottom-border.jpeg">
 
+
+  </div>
   </div>
 </template>
 
