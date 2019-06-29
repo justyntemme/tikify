@@ -19,7 +19,7 @@
           <button class="side-btn">I'm an Influencer</button>
         </b-col>
         <b-col class="col-4">
-          <button class="middle-btn">What we do for ... </button>
+          <button class="middle-btn">What we do for </button>
         </b-col>
         <b-col class="col-4">
           <button class="side-btn">I'm an Artist</button>
@@ -43,26 +43,26 @@
       <b-row>
 
         <b-col class="col-3 p-0">
-                    <img src="@/assets/influencer.svg">
+                    <img style="height: 100%; width: 100%;" src="@/assets/left-box.svg">
           
           
 
 
         </b-col>
         <b-col class="col-3 p-0">
-          <img src="@/assets/network.svg">
+          <img style="height: 100%; width: 100%;" src="@/assets/midleft-box.svg">
 
         </b-col>
 
         <b-col class="col-3 p-0">
 
-          <img src="@/assets/helped.svg">
+          <img style="height: 100%; width: 100%;" src="@/assets/midright-box.svg">
 
 
         </b-col>
 
         <b-col class="col-3 p-0">
-          <img src="@/assets/100m.svg">
+          <img style="height: 100%; width: 100%;" src="@/assets/right-box.svg">
 
 
         </b-col>
@@ -83,13 +83,17 @@
 <style scoped>
 .info-img-star {
   background-image: url("~@/assets/star.svg");
-  height: 155px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 155px;
   overflow: hidden;
 }
 
 .info-img-artist {
   background-image: url("~@/assets/artist.svg");
-  height: 155px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 155px;
   overflow: hidden;
 }
 
@@ -301,31 +305,48 @@
 }
 
 .side-btn {
-  background-image: url("~@/assets/slice1.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: -webkit-box;
+  color: #FD91C3; 
+  font-family: Arimo; 
+  font-weight: bold; 
+  font-style: normal; 
+  text-decoration: none; 
+  text-align: center; 
+  background: #FFFFFF; 
+  border: 5px solid #FD91C3; 
+  border-radius: 25px; 
+  box-shadow:5px 5px 10px 0px rgba(0,0,0,0.4); 
   font-size: x-small;
-  width: 100px;
   align-content: center;
   padding: 3px;
-  height: 3em;
   margin-top: -30px;
 }
 
 .middle-btn {
-  background-image: url("~@/assets/button4.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  color: #FFFFFF; 
+  font-family: Arimo; 
+  font-size: 24px; 
+  font-weight: bold; 
+  font-style: normal; 
+  text-decoration: none; 
+  text-align: center; 
+  background: #FD91C3; 
+  border: 5px solid #FFFFFF; 
+  border-radius: 25px; 
+  box-shadow:5px 5px 10px 0px rgba(0,0,0,0.4); 
   display: -webkit-box;
   font-size: x-small;
   width: 100px;
   align-content: center;
   padding: 3px;
-  height: 2em;
-  margin-bottom: 10px;
 
 
+
+
+}
+
+.middle-buttons {
+  margin-bottom: 30px;
+  
 }
 
 </style>
