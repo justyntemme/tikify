@@ -9,76 +9,86 @@
         <router-link :to="{ name: 'login' }"><b-button class="home-nav-btn" pill variant="primary">Login</b-button></router-link>
       </div>
     </div>
-    <div class="welcome ">
-      <h1 class="get-started">Get Started!</h1>
-    </div>
-    <div class="row">
-      <div class='col-4'>
-        <b-button class="home-nav-btn" pill variant="primary">I'm an Influencer</b-button>
-      </div>
-
-    <div class="col-4 phone">
-      <img class="phone-img" src="@/assets/phone.jpeg"/>
-    </div>
-     <div class='col-4'>
-       <b-button class="home-nav-btn" pill variant="primary">I'm an Artist</b-button>
-      </div>
-
+    <div class="middle-image">
+      <img src="@/assets/slice6b.svg"/>
     </div>
 
-    <div class="about-flow row">
-      <h2 class="col-12">How Tikify Works ...</h2>
-    </div>
-    <b-container class="about-boxes" fluid>
-      <b-row class="about-row">
-        <b-col class="search-for-influencers about-box col-12">
-          <b-button class="search-btn">
-            1
-          </b-button>
-          <b-container class="about-body">
-            <b-img class="col-12 search-img" src="@/assets/search.jpeg"></b-img>
-            <h3 class="about-heading">Search for fitting influencers</h3>
-            <p class="about-text">Browse our huge database of Tik Tok influencers that are looking to promote upcoming artists. Our influencers range from 10k-1M+ followers!</p>
-     
-            <b-button class="home-nav-btn">Explore Influencers</b-button>
-          </b-container>
+    <b-container class="middle-buttons info-btn">
+      <b-row>
+        <b-col class="col-4 ">
+          <button class="side-btn">I'm an Influencer</button>
+        </b-col>
+        <b-col class="col-4">
+          <button class="middle-btn">What we do for ... </button>
+        </b-col>
+        <b-col class="col-4">
+          <button class="side-btn">I'm an Artist</button>
+          
+        </b-col>
+      </b-row>
+    </b-container>
+    <b-container class="info-images">
+      <b-row class="justify-content-center">
+
+        <b-col class="col-6 info-img-star">
+         
 
         </b-col>
-        <b-col class="hire-influencer about-box col-12">
-          <b-button class="search-btn">
-            2
-          </b-button>
-          <b-container class="about-body">
-            <b-img class="col-12 search-img" src="@/assets/upload.jpeg"></b-img>
-            <h3 class="about-heading">Hire them and upload your song</h3>
-            <p class="about-text">Hire and pay the influencer for the post and then link your song to be used in the video.</p>
-  
-            <b-button class="home-nav-btn">Get Started</b-button>
-            
-
-          </b-container>
-
-        </b-col>
-        <b-col class="posted about-box col-12">
-          <b-button class="search-btn">
-            3
-          </b-button>
-          <b-container class="about-body">
-            <b-img class="col-12 search-img" src="@/assets/small-phone.jpeg"></b-img>
-            <h3 class="about-heading">Get your music posted on TikTok</h3>
-            <p class="about-text">Yout promoted Tik Tok video will be posted within 1 week. The goal is to get your song to catch on and have many users making videos to it!</p>
-  
-            <b-button class="home-nav-btn">Go Viral</b-button>
-          </b-container>
+        <b-col class="col-6 info-img-artist">
+          
         </b-col>
 
       </b-row>
 
+      <b-row>
+
+        <b-col class="col-3 p-0">
+                    <img src="@/assets/influencer.svg">
+          
+          
+
+
+        </b-col>
+        <b-col class="col-3 p-0">
+          <img src="@/assets/network.svg">
+
+        </b-col>
+
+        <b-col class="col-3 p-0">
+
+          <img src="@/assets/helped.svg">
+
+
+        </b-col>
+
+        <b-col class="col-3 p-0">
+          <img src="@/assets/100m.svg">
+
+
+        </b-col>
+
+
+
+      </b-row>
+
     </b-container>
+
   </div>
 </template>
 
 <style scoped>
+.info-img-star {
+  background-image: url("~@/assets/star.svg");
+  height: 155px;
+  overflow: hidden;
+}
+
+.info-img-artist {
+  background-image: url("~@/assets/artist.svg");
+  height: 155px;
+  overflow: hidden;
+}
+
 .home-header {
   background-image: url('~@/assets/home-header.jpeg');
   background-size: cover;
@@ -274,5 +284,44 @@
   
 }
 
+.middle-image {
+  margin-top: 1em;
+}
+
+.info-img {
+  height: 100%
+}
+
+.info-img img {
+
+}
+
+.side-btn {
+  background-image: url("~@/assets/slice1.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  font-size: x-small;
+  width: 100px;
+  align-content: center;
+  padding: 3px;
+  height: 3em;
+  margin-top: -30px;
+}
+
+.middle-btn {
+  background-image: url("~@/assets/button4.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  font-size: x-small;
+  width: 100px;
+  align-content: center;
+  padding: 3px;
+  height: 2em;
+  margin-bottom: 10px;
+
+
+}
 
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div class="navbar-div">
       <b-navbar type="light" variant="light">
-        <img class="nav-logo" src="@/assets/logo.png"/>
+        <img class="nav-logo" src="@/assets/logo.svg"/>
       </b-navbar>
     </div>
 </template>

@@ -1,26 +1,37 @@
 <template>
-  <b-container class="product">
-    <div id="frame">
-      <router-link :to="{ name: 'product', params: { product: product}}"><button id="floating-btn">‹</button></router-link>
-      <button @click="update()" class="editBtn">&#128190;</button>
-      <div id="shape"></div>
+  <div class="product-edit">
+    <b-container>
+      <b-row class="justify-content-center">
+        <b-col class="col-md-12 col-lg-4 align-self-center">
+          <img class="create-listing-block" src="@/assets/create-listing-block.svg"/>
+          <br>
+
+        </b-col>
+      </b-row>
+      <b-row class="justify-content-center">
+        <b-col class="col-md-12 col-lg-4 ">
+            <input type="text" >
+            <input type="text" >
             <b-form-textarea
-            id="textarea"
-            v-model="product.info"
-            placeholder="Enter something..."
-            rows="4"
-            max-rows="10"
-            ></b-form-textarea>
-        <span id="sub-text">{{product.duration}}</span>
+              id="textarea"
+              v-model="product.info"
+              placeholder="Enter something..."
+              rows="4"
+              max-rows="10"
+              ></b-form-textarea>
+        </b-col>
+
+      </b-row>
+      <b-row class="justyify-content-right">
+      <div class=" col-4">
+        <button @click="save">Save</button>
       </div>
-      <br>
-      <div class="col-12">
-        <span class="row"><h4>Advertisement Type</h4> <span class="ml-auto"> <b-form-input v-model="product.type"></b-form-input></span></span>
-        <hr class="product-line">
-        <span class="row"><h4>Ad Price</h4><span class="ml-auto"> <b-form-input v-model="product.price"></b-form-input></span></span>
-        <hr class="product-line">
-      </div>
-  </b-container>
+      </b-row>
+    </b-container>
+      <img class="divider-img-bottom" src="@/assets/background.svg">
+      <FooterMenu/>
+      
+  </div>
 </template>
 
 <script>

@@ -1,12 +1,17 @@
 <template>
   <div class="product">
     <b-container>
-      <b-row>
-        <b-col class="col-md-12">
+      <b-row class="justify-content-center">
+        <b-col class="col-md-12 col-lg-4 align-self-center">
           <img class="create-listing-block" src="@/assets/create-listing-block.svg"/>
           <br>
-            <input type="text" >
-            <input type="text" >
+
+        </b-col>
+      </b-row>
+      <b-row class="justify-content-center">
+        <b-col class="col-md-12 col-lg-4 ">
+            <input v-model="product.price" type="text"/>
+            <input v-model="product.type" type="text"/>
             <b-form-textarea
               id="textarea"
               v-model="product.info"
@@ -14,9 +19,13 @@
               rows="4"
               max-rows="10"
               ></b-form-textarea>
-
-
         </b-col>
+
+      </b-row>
+      <b-row class="justify-content-end">
+      <div class="col-4">
+        <i @click="update" class="fas fa-save-5x"></i>
+      </div>
       </b-row>
     </b-container>
       <img class="divider-img-bottom" src="@/assets/background.svg">
@@ -132,13 +141,18 @@ i {
 }
 
 input {
-  border: 2px solid black;
+  width: 100%;
+  margin: 5px;
+  line-height: 2em;
+  border-radius: 10px;
+  background-color: light-gray;
 }
 
 .create-listing-block {
   height: 50%;
   margin-top: 10%;
 }
+
 
 </style>
 
