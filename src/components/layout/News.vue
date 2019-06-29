@@ -1,7 +1,7 @@
 <template>
     <div class="news">
         <h2>Sales</h2>
-        <b-row class="news-row scrolling-wrapper justify-content-center">
+        <b-row class="news-row scrolling-wrapper">
             <b-col v-for="sale in sales"  class="news-box col-md-2 col-sm-6 col-mx-auto">
                 <div class="news-body">
                 <h3>{{sale.type}}</h3>
