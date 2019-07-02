@@ -3,10 +3,10 @@
         <h2>Sales</h2>
         <b-row class="news-row scrolling-wrapper">
             <b-col v-for="sale in sales"  class="news-box col-md-2 col-sm-6 col-mx-auto">
-                <div class="news-body">
+                <router-link :to="{ name: 'sale', params: { sale: sale}}"><div class="news-body">
                 <h3>{{sale.type}}</h3>
                 <p>{{sale.price}}</p>
-                </div>
+                </div></router-link>
             </b-col>
         </b-row>
 
@@ -14,10 +14,11 @@
         <h2>Posts for Sale</h2>
         <b-row class="news-row scrolling-wrapper ">
             <b-col v-for="product in products"  class="news-box col-md-2 col-sm-6 col-mx-auto">
-                <div class="news-body">
+                <router-link :to="{ name: 'product', params: { product: product}}"><div class="news-body">
                 <h3>{{product.type}}</h3>
                 <p>{{product.price}}</p>
                 </div>
+                </router-link>
             </b-col>
         </b-row>
 
@@ -65,6 +66,10 @@ export default {
   margin-top: 40px;
   text-align: -webkit-center;
   width: 50%;
+}
+
+a {
+  color: black;
 }
 
 
