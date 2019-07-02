@@ -22,7 +22,7 @@
           <button class="middle-btn">What we do for </button>
         </b-col>
         <b-col class="col-4">
-          <button class="side-btn">I'm an Artist</button>
+         <router-link :to="{ name: 'signup' }"> <button class="side-btn">I'm an Artist</button></router-link>
           
         </b-col>
       </b-row>

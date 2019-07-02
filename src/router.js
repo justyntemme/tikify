@@ -77,6 +77,14 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "signup" */'@/views/SignUp.vue')
     },
     {
+      path: '/signup/complete',
+      name: 'aftersignup',
+      meta: {
+        guest: true
+      },
+      component: () => import(/* webpackChunkName: "signup" */'@/views/AfterSignUp.vue')
+    },
+    {
       path: '/about',
       name: 'about',
       meta: {
