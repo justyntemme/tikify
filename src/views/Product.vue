@@ -5,11 +5,12 @@
        <router-link :to="{ name: 'productedit', params: { product: product}}"><i class="edit-btn fa fa-pencil-alt"/></router-link>
        </b-col>
         <p>{{product.info}}</p>
-        <span id="sub-text">{{product.duration}}</span>
     </b-row>
 
       <br>
       <div class="col-12">
+        <span class="row"><h4>Advertisement Length</h4> <span class="ml-auto"><p>{{product.duration}}</p></span></span>
+        <hr class="product-line">
         <span class="row"><h4>Advertisement Type</h4> <span class="ml-auto"><p>{{product.type}}</p></span></span>
         <hr class="product-line">
         <span class="row"><h4>Ad Price</h4><span class="ml-auto"><p>{{product.price}}</p></span></span>
