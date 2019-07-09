@@ -1,12 +1,13 @@
 <template>
   <b-container class="product">
-    <div id="frame">
-      <button @click="goBack()" id="floating-btn">‹</button>
-       <router-link :to="{ name: 'productedit', params: { product: product}}"><button class="editBtn">✎</button></router-link>
-      <div id="shape"></div>
+    <b-row id="frame">
+      <b-col class="col-3" offset="9" align-h="end">
+       <router-link :to="{ name: 'productedit', params: { product: product}}"><i class="edit-btn fa fa-pencil-alt"/></router-link>
+       </b-col>
         <p>{{product.info}}</p>
         <span id="sub-text">{{product.duration}}</span>
-      </div>
+    </b-row>
+
       <br>
       <div class="col-12">
         <span class="row"><h4>Advertisement Type</h4> <span class="ml-auto"><p>{{product.type}}</p></span></span>
@@ -47,3 +48,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.edit-btn {
+  position: fixed;
+
+}
+</style>
+
