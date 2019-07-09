@@ -1,5 +1,5 @@
 <template>
-  <div class="product-edit">
+  <div class="product">
     <b-container>
       <b-row class="justify-content-center">
         <b-col class="col-md-12 col-lg-4 align-self-center">
@@ -9,22 +9,22 @@
         </b-col>
       </b-row>
       <b-row class="justify-content-center">
-        <b-col class="col-md-12 col-lg-4 ">
-            <input type="text" >
-            <input type="text" >
+        <b-col class="col-md-12 col-lg-4 input-col justify-content-center">
+            <b-row class="justify-content-center"><input placeholder="Type" class="post-type" v-model="product.price" type="text"/><i class="fa fa-question-circle"/></b-row>
+            <b-row class="justify-content-center"><input placeholder="Price" class="post-price" v-model="product.type" type="text"/><i class="fa fa-question-circle"/></b-row>
             <b-form-textarea
               id="textarea"
               v-model="product.info"
-              placeholder="Enter something..."
+              placeholder="Describe the benefits of your post to an artist"
               rows="4"
               max-rows="10"
               ></b-form-textarea>
         </b-col>
 
       </b-row>
-      <b-row class="justyify-content-right">
-      <div class=" col-4">
-        <button @click="save">Save</button>
+      <b-row class="justify-content-end">
+      <div class="col-4">
+        <i @click="update" class="fas fa-save-5x"></i>
       </div>
       </b-row>
     </b-container>
@@ -33,6 +33,62 @@
       
   </div>
 </template>
+
+
+<style scoped>
+
+.input-col {
+  padding: 15px;
+}
+
+
+  .editBtn {
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: 65px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #f56;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+    font-size: 22px;
+    font-weight: bold;
+    color: #f56;
+  }
+  .back-btn {
+    align-content: left;
+    background: #f8f9fa;
+    color: #E91E63;
+    border: 0px;
+}
+
+.divider-img-bottom {
+  width: 100%;
+  margin-top: .5em;
+}
+
+i {
+  margin-left: 4%;
+}
+
+input {
+
+  margin: 5px;
+  line-height: 2em;
+  border-radius: 10px;
+  background-color: light-gray;
+}
+
+.create-listing-block {
+  height: 50%;
+  margin-top: 10%;
+}
+
+
+</style>
 
 <script>
 import firebase from 'firebase'
@@ -57,138 +113,3 @@ export default {
     
 }
 </script>
-
-<style scoped>
-  #frame {
-    border: 2px solid #f56;
-    border-radius: 20px;
-    width: 90%;
-    padding: 10px;
-    padding-bottom: 30px;
-    margin: 0px auto;
-    position: relative;
-  }
-  
-  #shape {
-    float: left;
-    width: 25px;
-    height: 25px;
-    shape-outside: circle(50%);
-    margin-bottom: 10px;
-    margin-right: 10px;
-  }
-  
-  #floating-btn {
-    display: block;
-    position: absolute;
-    left: -25px;
-    top: 10px;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #f56;
-    border-radius: 50%;
-    background-color: #fff;
-    cursor: pointer;
-    outline: none;
-    font-size: 22px;
-    font-weight: bold;
-    color: #f56;
-  }
-  
-  #sub-text {
-    position: absolute;
-    bottom: 10px;
-    left: -15px;
-    background-color: #f56;
-    padding: 5px;
-    color: #fff;
-    border-radius: 5px;
-  }
-
-  .editBtn {
-    display: block;
-    position: absolute;
-    left: -25px;
-    top: 65px;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #f56;
-    border-radius: 50%;
-    background-color: #fff;
-    cursor: pointer;
-    outline: none;
-    font-size: 22px;
-    font-weight: bold;
-    color: #f56;
-  }
-  #frame {
-    border: 2px solid #f56;
-    border-radius: 20px;
-    width: 90%;
-    padding: 10px;
-    padding-bottom: 30px;
-    margin: 0px auto;
-    position: relative;
-  }
-  
-  #shape {
-    float: left;
-    width: 25px;
-    height: 25px;
-    shape-outside: circle(50%);
-    margin-bottom: 10px;
-    margin-right: 10px;
-  }
-  
-  #floating-btn {
-    display: block;
-    position: absolute;
-    left: -25px;
-    top: 10px;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #f56;
-    border-radius: 50%;
-    background-color: #fff;
-    cursor: pointer;
-    outline: none;
-    font-size: 22px;
-    font-weight: bold;
-    color: #f56;
-  }
-  
-  #sub-text {
-    position: absolute;
-    bottom: 10px;
-    left: -15px;
-    background-color: #f56;
-    padding: 5px;
-    color: #fff;
-    border-radius: 5px;
-  }
-
-  .editBtn {
-    display: block;
-    position: absolute;
-    left: -25px;
-    top: 65px;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #f56;
-    border-radius: 50%;
-    background-color: #fff;
-    cursor: pointer;
-    outline: none;
-    font-size: 22px;
-    font-weight: bold;
-    color: #f56;
-  }
-
-  .back-btn {
-    align-content: left;
-    background: #f8f9fa;
-    color: #E91E63;
-    border: 0px;
-}
-</style>
-

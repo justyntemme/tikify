@@ -9,13 +9,13 @@
         </b-col>
       </b-row>
       <b-row class="justify-content-center">
-        <b-col class="col-md-12 col-lg-4 ">
-            <input v-model="product.price" type="text"/>
-            <input v-model="product.type" type="text"/>
+        <b-col class="col-md-12 col-lg-4 input-col justify-content-center">
+            <b-row class="justify-content-center"><input placeholder="Type" class="post-type" v-model="product.price" type="text"/><i class="fa fa-question-circle"/></b-row>
+            <b-row class="justify-content-center"><input placeholder="Price" class="post-price" v-model="product.type" type="text"/><i class="fa fa-question-circle"/></b-row>
             <b-form-textarea
               id="textarea"
               v-model="product.info"
-              placeholder="Enter something..."
+              placeholder="Describe the benefits of your post to an artist"
               rows="4"
               max-rows="10"
               ></b-form-textarea>
@@ -62,51 +62,11 @@ export default {
 </script>
 
 <style scoped>
-  #frame {
-    border: 2px solid #f56;
-    border-radius: 20px;
-    width: 90%;
-    padding: 10px;
-    padding-bottom: 30px;
-    margin: 0px auto;
-    position: relative;
-  }
-  
-  #shape {
-    float: left;
-    width: 25px;
-    height: 25px;
-    shape-outside: circle(50%);
-    margin-bottom: 10px;
-    margin-right: 10px;
-  }
-  
-  #floating-btn {
-    display: block;
-    position: absolute;
-    left: -25px;
-    top: 10px;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #f56;
-    border-radius: 50%;
-    background-color: #fff;
-    cursor: pointer;
-    outline: none;
-    font-size: 22px;
-    font-weight: bold;
-    color: #f56;
-  }
-  
-  #sub-text {
-    position: absolute;
-    bottom: 10px;
-    left: -15px;
-    background-color: #f56;
-    padding: 5px;
-    color: #fff;
-    border-radius: 5px;
-  }
+
+.input-col {
+  padding: 15px;
+}
+
 
   .editBtn {
     display: block;
@@ -141,7 +101,7 @@ i {
 }
 
 input {
-  width: 100%;
+
   margin: 5px;
   line-height: 2em;
   border-radius: 10px;
