@@ -11,6 +11,11 @@
         
         <input type="text" v-model="email" placeholder="Email"><br>
         <input type="password" v-model="password" placeholder="Password"><br>
+            <b-form-group label="I'm an ">
+      <b-form-radio v-model="accountType" name="influencer-radios" value="Influencer">Influencer</b-form-radio>
+      
+      <b-form-radio v-model="accountType" name="Artist-radios" value="Artist">Artist</b-form-radio>
+    </b-form-group>
         <b-button @click="signUp" class="home-nav-btn" pill variant="primary">Sign Up</b-button>
     </div>
 </template>
@@ -52,7 +57,8 @@ import Navbar from '@/components/layout/Navbar.vue'
                 dismissCountDown: 0,
                 errorMsg: '',
                 msgVariant: '',
-                status: ''
+                status: '',
+                accountType: '',
             }
         },
         methods: {
@@ -68,7 +74,8 @@ import Navbar from '@/components/layout/Navbar.vue'
                 let v = this;
                 const user = {
                     email: v.email,
-                    password: v.password
+                    password: v.password,
+                    accountType: v.accountType
                 }
                 v.$store.dispatch('signUpAction', user)
             }
