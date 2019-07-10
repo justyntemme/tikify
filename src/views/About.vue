@@ -19,7 +19,7 @@
           <button class="side-btn">I'm an Influencer</button>
         </b-col>
         <b-col class="col-4">
-          <button class="middle-btn">What we do for </button>
+          <h3>What we do for </h3>
         </b-col>
         <b-col class="col-4">
          <router-link :to="{ name: 'signup' }"> <button class="side-btn">I'm an Artist</button></router-link>
