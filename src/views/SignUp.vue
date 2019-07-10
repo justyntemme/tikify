@@ -42,7 +42,7 @@ import Navbar from '@/components/layout/Navbar.vue'
                         this.showAlert()
 
                     } else if (this.status == 'success') {
-                        v.$router.replace('aftersignup');
+                        v.$router.replace('login');
                     }
 
                 }
