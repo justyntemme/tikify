@@ -29,6 +29,11 @@
       </b-row>
     </b-container>
       <img class="divider-img-bottom" src="@/assets/background.svg">
+            <b-row class="submit-btn-row">
+        <b-col class="submit-btn-col col-3">
+          <i @click="update" class="submit-btn fa fa-check-circle"/>
+        </b-col>
+      </b-row>
       <FooterMenu/>
       
   </div>
@@ -113,6 +118,17 @@ input {
   margin-top: 10%;
 }
 
+.submit-btn-row {
+  bottom: 25%;
+  position: fixed;
+}
+.submit-btn-row {
+  position: fixed;
+}
+.submit-btn {
+  right: 10%;
+  position: fixed;
+}
 
 </style>
 
