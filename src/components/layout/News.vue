@@ -1,17 +1,6 @@
 <template>
     <div class="news">
-        <h2>Sales</h2>
-        <b-row class="news-row scrolling-wrapper">
-            <b-col v-for="sale in sales"  class="news-box col-md-2 col-sm-6 col-mx-auto">
-                <router-link :to="{ name: 'sale', params: { sale: sale}}"><div class="news-body">
-                <h3>{{sale.type}}</h3>
-                <p>{{sale.price}}</p>
-                </div></router-link>
-            </b-col>
-        </b-row>
-
-        <img class="divider-img" src="@/assets/bottom-border.jpeg">
-        <h2>Posts for Sale</h2>
+              <h2>Posts for Sale</h2>
         <b-row class="news-row scrolling-wrapper ">
             <b-col v-for="product in products"  class="news-box col-md-2 col-sm-6 col-mx-auto">
                 <router-link :to="{ name: 'product', params: { product: product}}"><div class="news-body">
@@ -22,6 +11,17 @@
             </b-col>
         </b-row>
 
+
+        <img class="divider-img" src="@/assets/bottom-border.jpeg">
+        <h2>Sales</h2>
+        <b-row class="news-row scrolling-wrapper">
+            <b-col v-for="sale in sales"  class="news-box col-md-2 col-sm-6 col-mx-auto">
+                <router-link :to="{ name: 'sale', params: { sale: sale}}"><div class="news-body">
+                <h3>{{sale.type}}</h3>
+                <p>{{sale.price}}</p>
+                </div></router-link>
+            </b-col>
+        </b-row>
         <img class="divider-img-bottom" src="@/assets/background.svg">
         
         
@@ -114,7 +114,7 @@ a {
 @media (min-width: 1081px) {
   
   .news-box {
-    padding-bottom: 250px;
+   
   }
   
 }

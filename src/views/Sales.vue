@@ -1,8 +1,8 @@
 <template>
 <b-container>
     <h3 class="sales-title ">Sales ></h3>
-    <b-row class="b-row col-12 align-items-center">
-        <b-col  v-for="sale in sales" class="col-sm-12 col-md-4 product-card-col justify-content-center">
+    <b-row class="b-row justify-content-center">
+        <b-col  v-for="sale in sales" class="col col-sm-12 col-md-4 product-card-col justify-content-center">
             <div class="card">
                 <div class="card-header">
                     {{sale.type}}

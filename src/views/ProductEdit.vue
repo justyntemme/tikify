@@ -29,11 +29,7 @@
       </b-row>
     </b-container>
       <img class="divider-img-bottom" src="@/assets/background.svg">
-      <b-row class="submit-btn-row">
-        <b-col class="submit-btn-col col-3">
-          <i @click="update" class="submit-btn fa fa-check-circle"/>
-        </b-col>
-      </b-row>
+
       <FooterMenu/>
       
   </div>
@@ -41,7 +37,7 @@
 
 <script>
 import firebase from 'firebase'
-import FooterMenu from '@/components/layout/FooterMenu.vue'
+import FooterMenu from '@/components/layout/FooterMenu-edit.vue'
 export default {
     components: {
       FooterMenu

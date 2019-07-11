@@ -1,16 +1,16 @@
 <template>
 <b-container>
     <h3 class="product-title ">Products ></h3>
-    <b-row class="b-row col-23 justify-content-center">
-        <b-col  v-for="product in products" class="col-sm-12 col-md-6 product-card-col justify-content-center">
+    <b-row class="b-row justify-content-center">
+        <b-col  v-for="product in products" class="col col-12 product-card-col justify-content-center">
             <div class="card">
                 <div class="card-header">
                     {{product.type}}
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">{{product.price}}</h5>
-                    <p class="card-text">{{product.info}}</p>
-                    <router-link :to="{ name: 'product', params: { product: product}}"><a href="#" class="btn btn-primary">Edit</a></router-link>
+                    <p class="card-text">{{product.info|truncate}}</p>
+                    <router-link :to="{ name: 'product', params: { product: product}}"><a href="#" class="btn btn-primary">Details</a></router-link>
                 </div>
             </div>
         </b-col>
@@ -26,6 +26,17 @@ export default {
         FooterMenu
 
     },
+  filters: {
+    truncate: function(value) {
+      if (value.length > 20) {
+        value = value.substring(0, 17) + '...';
+      }
+
+
+      return value
+
+    }
+  },
     mounted() {
     let v = this;
     v.$store.dispatch('getProductsAction');
@@ -66,13 +77,12 @@ export default {
 
 }
 
-.b-row {
-    margin-bottom: 50px;
+.card {
+    border-radius: 10px;
 }
 
-.card {
-    margin-bottom: 5px;
-}
+
+
 
 
   
