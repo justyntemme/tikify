@@ -142,6 +142,7 @@ a {
 
 .divider-img {
   width: 100%;
+  margin-top: -20px;
 
 }
 .divider-img-bottom {
@@ -168,21 +169,14 @@ h2 {
   height: 10em;
   width: 8em;
   margin-left: 5px;
-  color: white;
+  color: #333;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   padding-bottom: 10px;
-/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ff42f2+0,ff91f7+99 */
-background: rgb(255,66,242); /* Old browsers */
-background: -moz-linear-gradient(-45deg,  rgba(255,66,242,1) 0%, rgba(255,145,247,1) 99%); /* FF3.6-15 */
-background: -webkit-linear-gradient(-45deg,  rgba(255,66,242,1) 0%,rgba(255,145,247,1) 99%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(135deg,  rgba(255,66,242,1) 0%,rgba(255,145,247,1) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff42f2', endColorstr='#ff91f7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
 }
 
 .col {
    margin-bottom: 16px;
-  padding-top: 10px;
 }
 
 </style>
