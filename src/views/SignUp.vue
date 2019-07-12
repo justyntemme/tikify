@@ -8,9 +8,13 @@
             :variant="msgVariant"
             @dismissed="dismissCountDown=0"
             @dismiss-count-down="countDownChanged">{{errorMsg}}</b-alert>
-        
-        <input type="text" v-model="email" placeholder="Email"><br>
-        <input type="password" v-model="password" placeholder="Password"><br>
+
+        <b-form-input type="text" v-model="name" placeholder="Enter your name"></b-form-input>
+        <b-form-input type="email" v-model="email" placeholder="Enter your email"></b-form-input>
+        <b-form-input type="password" v-model="password" placeholder="Enter your Password"></b-form-input>
+        <p>DOB</p>
+        <b-form-input type="date" v-model="dob" label="Enter your date of birth"></b-form-input>
+
             <b-form-group label="I'm an ">
       <b-form-radio v-model="accountType" name="influencer-radios" value="Influencer">Influencer</b-form-radio>
       
@@ -59,6 +63,9 @@ import Navbar from '@/components/layout/Navbar.vue'
                 msgVariant: '',
                 status: '',
                 accountType: '',
+                name: '',
+                dob: ''
+
             }
         },
         methods: {
@@ -75,7 +82,9 @@ import Navbar from '@/components/layout/Navbar.vue'
                 const user = {
                     email: v.email,
                     password: v.password,
-                    accountType: v.accountType
+                    accountType: v.accountType,
+                    dob: v.dob,
+                    name: v.name,
                 }
                 v.$store.dispatch('signUpAction', user)
             }

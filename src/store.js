@@ -2,9 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as firebase from 'firebase'
 
-
 Vue.use(Vuex)
-
 
 export default new Vuex.Store({
   state: {
@@ -52,12 +50,22 @@ export default new Vuex.Store({
   },
   actions: {
     signUpAction({commit}, payload){
+      let db = firebase.firestore()
       commit('setStatus', 'loading')
       firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
       .then((response) => {
         commit('setUser', response.user.uid)
         commit('setStatus', 'success')
         commit('setError', null)
+        db.collection('users').doc(response.user.uid).set({
+          email: payload.email,
+          accountType: payload.accountType,
+          name: payload.name,
+          dob: payload.dob
+        }).catch((error) => {
+          alert(error.message)
+        })
+        
       }).catch((error) =>{
         commit('setStatus', 'failure')
         commit('setError', error.message)
@@ -107,7 +115,7 @@ export default new Vuex.Store({
       .where("uid", "==",firebase.auth().currentUser.uid )
       salesCollection.onSnapshot((salesRef) => {
         salesRef.forEach((doc) => {
-          const product = doc.data();
+          const sale = doc.data();
           sale.id = doc.id
           sales.push(sale)
         });
