@@ -2,11 +2,13 @@
     <div class="news">
               <h2>Posts for Sale</h2>
         <b-row class="news-row scrolling-wrapper ">
-            <b-col v-for="product in products"  class="news-box col-md-2 col-sm-6 col-mx-auto">
-                <router-link :to="{ name: 'product', params: { product: product}}"><div class="news-body">
-                <h3>{{product.type}}</h3>
-                <p>{{product.price}}</p>
-                </div>
+            <b-col v-for="product in products">
+                <router-link style="overflow: visible;" :to="{ name: 'product', params: { product: product}}">
+                  <b-card class="card" :title="product.type" :sub-title="product.price">
+                    <b-card-text>
+                      {{product.info|truncate}}
+                    </b-card-text>
+                  </b-card>
                 </router-link>
             </b-col>
         </b-row>
@@ -14,12 +16,16 @@
 
         <img class="divider-img" src="@/assets/bottom-border.jpeg">
         <h2>Sales</h2>
-        <b-row class="news-row scrolling-wrapper">
-            <b-col v-for="sale in sales"  class="news-box col-md-2 col-sm-6 col-mx-auto">
-                <router-link :to="{ name: 'sale', params: { sale: sale}}"><div class="news-body">
-                <h3>{{sale.type}}</h3>
-                <p>{{sale.price}}</p>
-                </div></router-link>
+        <b-row class="news-row scrolling-wrapper ">
+            <b-col v-for="sale in sales">
+                <router-link :to="{ name: 'sale', params: { sale: sale}}">
+                  <b-card class="card" :title="sale.type" :sub-title="sale.price">
+                    <b-card-text>
+                      {{sale.info|truncate}}
+                    </b-card-text>
+                    <b-card-text>{{sale.duration}}.</b-card-text>
+                  </b-card>
+                </router-link>
             </b-col>
         </b-row>
         <img class="divider-img-bottom" src="@/assets/background.svg">
@@ -35,6 +41,17 @@ export default {
     return {
       sales: {},
       products: {}
+    }
+  },
+    filters: {
+    truncate: function(value) {
+      if (value.length > 20) {
+        value = value.substring(0, 17) + '...';
+      }
+
+
+      return value
+
     }
   },
     components: {},
@@ -59,7 +76,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 
 .news-body {
@@ -125,7 +142,7 @@ a {
 
 .divider-img {
   width: 100%;
-  margin-top: -50px;
+
 }
 .divider-img-bottom {
   width: 100%;
@@ -136,6 +153,7 @@ a {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
+
 }
 
 h2 {
@@ -144,4 +162,27 @@ h2 {
   margin-left: 10px;
   
 }
+
+.card {
+  border-radius: 20px;
+  height: 10em;
+  width: 8em;
+  margin-left: 5px;
+  color: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  padding-bottom: 10px;
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ff42f2+0,ff91f7+99 */
+background: rgb(255,66,242); /* Old browsers */
+background: -moz-linear-gradient(-45deg,  rgba(255,66,242,1) 0%, rgba(255,145,247,1) 99%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  rgba(255,66,242,1) 0%,rgba(255,145,247,1) 99%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  rgba(255,66,242,1) 0%,rgba(255,145,247,1) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff42f2', endColorstr='#ff91f7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
+.col {
+   margin-bottom: 16px;
+  padding-top: 10px;
+}
+
 </style>

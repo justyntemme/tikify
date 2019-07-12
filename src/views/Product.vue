@@ -59,6 +59,11 @@ export default {
 <style scoped>
 .card {
   border-radius: 10px;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+0,f0f282+100 */
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+0,f888fc+100 */
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#c12eea+0,f888fc+100 */
+
+
 }
 
 

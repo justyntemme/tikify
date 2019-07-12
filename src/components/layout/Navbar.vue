@@ -75,9 +75,7 @@ h2 {
   margin-top: -10px;
   margin-bottom: 30px;
   border-radius: 0px 0px 10px 10px;
-  -webkit-box-shadow: 0px 2px 29px -9px rgba(0,0,0,0.57);
-  -moz-box-shadow: 0px 2px 29px -9px rgba(0,0,0,0.57);
-  box-shadow: 0px 2px 29px -9px rgba(0,0,0,0.57);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
 }
 
