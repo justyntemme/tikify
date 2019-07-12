@@ -105,7 +105,7 @@ export default new Vuex.Store({
       
       let salesCollection = db.collection('sales')
       .where("uid", "==",firebase.auth().currentUser.uid )
-      salessCollection.onSnapshot((salesRef) => {
+      salesCollection.onSnapshot((salesRef) => {
         salesRef.forEach((doc) => {
           const product = doc.data();
           sale.id = doc.id
