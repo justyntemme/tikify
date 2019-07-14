@@ -34,6 +34,14 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "sales" */'@/views/Sales.vue')
     },
     {
+      path: '/artist/wallet/add',
+      name: 'addcredit',
+      meta: {
+        requiresAuth: true
+      },
+      component: () => import(/* webpackChunkName: "addcredit" */'@/views/AddCredit.vue')
+    },
+    {
       path: '/edit',
       name: 'productedit',
       props: {

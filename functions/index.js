@@ -33,7 +33,11 @@ function charge(req, res) {
         send(res, 200, {
             message: 'Success',
             charge,
-        });
+        }
+        //v.product.uid = firebase.auth().currentUser.uid
+         //firebase.firestore().collection("products").add(v.product);
+        
+        );
     }).catch(err => {
         console.log(err);
         send(res, 500, {
