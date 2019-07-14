@@ -82,7 +82,7 @@
 
 <style scoped>
 .info-img-star {
-  background-image: url("~@/assets/star.svg");
+  background-image: url("~@/assets/star.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 155px;
@@ -90,7 +90,7 @@
 }
 
 .info-img-artist {
-  background-image: url("~@/assets/artist.svg");
+  background-image: url("~@/assets/artist.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 155px;
