@@ -34,7 +34,7 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "sales" */'@/views/Sales.vue')
     },
     {
-      path: '/about/influencers',
+      path: '/influencers',
       name: 'influencerinfo',
       meta: {
         requiresAuth: false
