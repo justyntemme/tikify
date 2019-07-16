@@ -117,7 +117,7 @@ export default {
                         this.showAlert()
 
                     } else if (this.status == 'success') {
-                        v.$router.push('/login');
+                        v.$router.push('/');
                     }
 
                 }
