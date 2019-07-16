@@ -1,5 +1,6 @@
 <template>
     <div class="body-block">
+        <Navbar/>
         <b-container class="head mt-3">
             <b-row>
                 <b-col class="col-12">
@@ -47,11 +48,92 @@
                 </b-col>
             </b-row>
         </b-container>
+        <div class="sign-up">
+            <p>Create a new account</p>
+            <b-alert
+                dismissible
+                :show="dismissCountDown"
+                :variant="msgVariant"
+                @dismissed="dismissCountDown=0"
+                @dismiss-count-down="countDownChanged">{{errorMsg}}</b-alert>
+
+            <b-form-input type="text" v-model="name" placeholder="Enter your name"></b-form-input>
+            <b-form-input type="email" v-model="email" placeholder="Enter your email"></b-form-input>
+            <b-form-input type="password" v-model="password" placeholder="Enter your Password"></b-form-input>
+            <p>DOB</p>
+            <b-form-input type="date" v-model="dob" label="Enter your date of birth"></b-form-input>
+
+            <b-button @click="signUp" class="home-nav-btn" pill variant="primary">Sign Up</b-button>
     </div>
+    </div>
+    
 </template>
 
 <script>
+import Navbar from '@/components/layout/Navbar.vue'
+
 export default {
+            components:{
+                Navbar
+
+            },
+            data() {
+            return {
+                email: '',
+                password: '',
+                dismissSecs: 5,
+                dismissCountDown: 0,
+                errorMsg: '',
+                msgVariant: '',
+                status: '',
+                accountType: 'Influencer',
+                name: '',
+                dob: ''
+
+            }
+        },
+        mounted() {
+            let v = this;
+
+            this.$store.watch(
+                state=>state.status,
+                (data) => {
+                    this.status = data
+
+                    if (this.status == 'failure') {
+                        this.msgVariant = "danger"
+                        this.errorMsg = this.$store.getters.error
+                        this.showAlert()
+
+                    } else if (this.status == 'success') {
+                        v.$router.push('/login');
+                    }
+
+                }
+            )
+
+        },
+        methods: {
+            countDownChanged(dismissCountDown) {
+                let v = this;
+                v.dismissCountDown = dismissCountDown
+            },
+            showAlert() {
+                let v = this;
+                v.dismissCountDown = v.dismissSecs
+            },
+            signUp: function() {
+                let v = this;
+                const user = {
+                    email: v.email,
+                    password: v.password,
+                    accountType: v.accountType,
+                    dob: v.dob,
+                    name: v.name,
+                }
+                v.$store.dispatch('signUpAction', user)
+            }
+        }
 
 }
 </script>
@@ -92,5 +174,22 @@ h3 {
     border-radius: 20px;
 }
 
+
+.home-nav-btn {
+  background-image: url("~@/assets/gradiant-button.png");
+  background-position: center;
+  background-size: stretch;
+  margin: 5px;
+  font-family: Arimo; 
+  font-size: 8px; 
+  font-weight: bold; 
+  font-style: normal; 
+  text-decoration: none; 
+  text-align: center; 
+  color: #FFFFFF; 
+  border-radius: 10px; 
+  border: 0px;
+  box-shadow:2px 2px 4px 0px rgba(0,0,0,0.5); 
+}
 </style>
 

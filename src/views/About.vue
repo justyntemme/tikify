@@ -16,7 +16,7 @@
     <b-container class="middle-buttons info-btn">
       <b-row>
         <b-col class="col-4 ">
-          <button class="side-btn">I'm an Influencer</button>
+          <router-link :to="{ name: 'influencerinfo' }"> <button class="side-btn">I'm an Influencer</button></router-link>
         </b-col>
         <b-col class="col-4">
           <h3>What we do for </h3>

@@ -8,7 +8,7 @@
 
 
 
-<style lang="scss">
+<style lang="css" scopped>
 #app {
   width: 100%;
   overflow: hidden;
