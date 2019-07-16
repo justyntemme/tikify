@@ -4,7 +4,7 @@
         <b-container class="head mt-3">
             <b-row>
                 <b-col class="col-12">
-                    <h1>Influencers</h1>
+                    <h1>For TikTk Influencers</h1>
                 </b-col>
             </b-row>
         </b-container>
@@ -15,6 +15,29 @@
                     <h2>Connecting the Music Industry...</h2>
                     <p>Tikify is a unique network of artists and influencers, collaborating together to blow up viral content on TikTok and beyond. We provide our clients the support and guidance needed to grow and explode with relevant and popular artists catered to your following.</p>
                 </b-col>
+            </b-row>
+            <b-row class="how-to justify-content-center mb-3">
+                <b-col class="col-10 my-3 py-3">
+                    <div class="white-box p-3">
+                        <div class="sign-up">
+                            <p>Create a new account</p>
+                            <b-alert
+                                dismissible
+                                :show="dismissCountDown"
+                                :variant="msgVariant"
+                                @dismissed="dismissCountDown=0"
+                                @dismiss-count-down="countDownChanged">{{errorMsg}}</b-alert>
+
+                            <b-form-input type="text" v-model="name" placeholder="Enter your name"></b-form-input>
+                            <b-form-input type="email" v-model="email" placeholder="Enter your email"></b-form-input>
+                            <b-form-input type="password" v-model="password" placeholder="Enter your Password"></b-form-input>
+                            <p>Date of Birth</p>
+                            <b-form-input type="date" v-model="dob" label="Enter your date of birth"></b-form-input>
+
+                            <b-button @click="signUp" class="home-nav-btn" pill variant="primary">Sign Up</b-button>
+                        </div>
+                                </div>
+                            </b-col>
             </b-row>
 
             <b-row class="mt-4 mb-3">
@@ -48,23 +71,7 @@
                 </b-col>
             </b-row>
         </b-container>
-        <div class="sign-up">
-            <p>Create a new account</p>
-            <b-alert
-                dismissible
-                :show="dismissCountDown"
-                :variant="msgVariant"
-                @dismissed="dismissCountDown=0"
-                @dismiss-count-down="countDownChanged">{{errorMsg}}</b-alert>
 
-            <b-form-input type="text" v-model="name" placeholder="Enter your name"></b-form-input>
-            <b-form-input type="email" v-model="email" placeholder="Enter your email"></b-form-input>
-            <b-form-input type="password" v-model="password" placeholder="Enter your Password"></b-form-input>
-            <p>DOB</p>
-            <b-form-input type="date" v-model="dob" label="Enter your date of birth"></b-form-input>
-
-            <b-button @click="signUp" class="home-nav-btn" pill variant="primary">Sign Up</b-button>
-    </div>
     </div>
     
 </template>
