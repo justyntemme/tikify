@@ -44,18 +44,18 @@
             </b-row>
 
             <b-row class="mt-4 mb-3">
-                <b-col class="lead-text">
+                <b-col class="lead-text text-block">
                     <h3>Grow Your Brand</h3>
                     <p>Expand your TikTok influence and grow a massive following. Sign up now to join Tikify’s exclusive TikTok Growth Tips Newsletter, providing practical and implementable solutions proven to foster growth.</p>
                 </b-col>
-                <b-col class="lead-text">
+                <b-col class="lead-text text-block">
                     <h3>Thrive Together</h3>
                     <p>Tikify connects influencers with growing artists. As an artists sway grows so will the influencers, and as an influencers influence grows, so will the artist’s. Make money together and gain more influence by ensuring each other's success.  </p>
                 </b-col>
             </b-row>
 
             <b-row class="mb-4">
-                <b-col>
+                <b-col class="lead-text text-block">
                     <h3>Stay In Tune</h3>
                     <p>Work together with established and hot, new artists in the music industry. Tikify creates relevant connections ensuring mutually profitable and meaningful relationships. Be on the edge of the latest trends and smash hits. </p>
                 </b-col>
@@ -150,6 +150,11 @@ export default {
 </script>
 
 <style scoped>
+
+.text-block {
+
+
+}
 
 .divider {
     width: 100%;

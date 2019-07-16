@@ -71,12 +71,11 @@
 
       </b-row>
 
-    </b-container>
-  <div class="footer">
-    <img src="@/assets/bottom-border.jpeg">
+    </b-container>    
+    <img class="divider-img" src="@/assets/bottom-border.jpeg">
 
 
-  </div>
+
   </div>
 </template>
 
@@ -347,6 +346,19 @@
 .middle-buttons {
   margin-bottom: 30px;
   
+}
+
+.divider-img {
+  width: 100%;
+}
+
+@media all and (min-width: 960px) {
+  .middle-image img {
+    display: none;
+  }
+  .info-images div {
+    min-height: 20em;
+  }
 }
 
 </style>
