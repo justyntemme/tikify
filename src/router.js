@@ -34,7 +34,7 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "sales" */'@/views/Sales.vue')
     },
     {
-      path: '/influencer/about',
+      path: '/about/influencers',
       name: 'influencerinfo',
       meta: {
         requiresAuth: false
@@ -120,18 +120,18 @@ router.beforeEach((to, from, next) => {
   firebase.auth().onAuthStateChanged(user => {
     if (to.path != 'login' ) {
       console.log(firebase.auth().currentUser)
-  
-  
+
+
     if(requiresAuth && !user){
-  
+
       next('about');
-    } 
-    else if (!requiresAuth && user) { 
+    }
+    else if (!requiresAuth && user) {
       next();
     }
     else {
       next();
-    } 
+    }
   }
 
   });
