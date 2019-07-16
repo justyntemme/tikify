@@ -151,9 +151,9 @@ export default {
 
 <style scoped>
 
-.text-block {
-
-
+.divider {
+    margin-top: 5em;
+    margin-bottom: -15em;
 }
 
 .divider {
