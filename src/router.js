@@ -42,6 +42,14 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "influencerinfo" */'@/views/InfluencerInfo.vue')
     },
     {
+      path: '/artists',
+      name: 'artistinfo',
+      meta: {
+        requiresAuth: false
+      },
+      component: () => import(/* webpackChunkName: "influencerinfo" */'@/views/ArtistInfo.vue')
+    },
+    {
       path: '/artist/wallet/add',
       name: 'addcredit',
       meta: {
@@ -117,7 +125,9 @@ const router = new Router({
 export default router
 
 router.beforeEach((to, from, next) => {
-  firebase.auth().onAuthStateChanged(user => {
+  let v = this;
+  firebase.auth().onAuthStateChanged(user => {      
+
     if (to.path != 'login' ) {
       console.log(firebase.auth().currentUser)
 

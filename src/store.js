@@ -12,6 +12,7 @@ export default new Vuex.Store({
     db: {},
     products: {},
     sales: {},
+    account: {}
   },
   getters: {
     status(state) {
@@ -25,11 +26,18 @@ export default new Vuex.Store({
     },
     products (state) {
       return state.products
+    },
+    account (state) {
+      return state.account
+
     }
   },
   mutations: {
     setUser(state, payload) {
       state.user = payload
+    },
+    setAccount(state, payload) {
+      state.account = payload
     },
     removeUser (state) {
       state.user = null
@@ -49,7 +57,21 @@ export default new Vuex.Store({
 
   },
   actions: {
+    setAccountAction({commit}, payload) {
+      let v = this;
+      let db = firebase.firestore();
+      let accountRef =  db.collection('users').doc(payload);
+  
+      accountRef.get().then( (accountSnapshot) => {
+        
+        commit('setAccount',accountSnapshot.data())
+
+      });
+  
+
+    },
     signUpAction({commit}, payload){
+      let v = this;
       let db = firebase.firestore()
       commit('setStatus', 'loading')
       firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
@@ -57,12 +79,18 @@ export default new Vuex.Store({
         commit('setUser', response.user.uid)
         commit('setStatus', 'success')
         commit('setError', null)
-        db.collection('users').doc(response.user.uid).set({
+        let account = 
+        {
           email: payload.email,
           accountType: payload.accountType,
           name: payload.name,
           dob: payload.dob
-        }).catch((error) => {
+        }
+        db.collection('users').doc(response.user.uid).set(account).then((response) =>{
+          v.$state.setAccount(account)
+        })
+        
+        .catch((error) => {
           alert(error.message)
         })
         
@@ -73,12 +101,24 @@ export default new Vuex.Store({
     },
     
     signInAction({commit}, payload) {
+      let db = firebase.firestore()
       firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){
         firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
         .then((response) => {
           commit('setUser', response.user.uid)
           commit('setStatus', 'success')
           commit('setError', null)
+
+
+          let accountRef =  db.collection('users').doc(response.user.uid);
+          accountRef.get().then(accountSnapshot => {
+            commit('setAccount', accountSnapshot.data())
+          })
+
+          console.log("account ")
+          accountSnapshot.data()
+
+
         })
         .catch((error) => {
           commit('setStatus', 'failure')
