@@ -12,11 +12,15 @@ export default new Vuex.Store({
     db: {},
     products: {},
     sales: {},
-    account: {}
+    account: {},
+    cart: [],
   },
   getters: {
     status(state) {
       return state.status
+    },
+    cart (state) {
+      return state.cart
     },
     user (state) {
       return state.user
@@ -29,12 +33,22 @@ export default new Vuex.Store({
     },
     account (state) {
       return state.account
-
     }
   },
   mutations: {
     setUser(state, payload) {
       state.user = payload
+    },
+    addToCart(state, payload) {
+      state.cart.push(payload)
+    },
+    removeFromCart(state, payload){
+      state.cart = state.cart.filter(function(ele) {
+        return ele != payload
+      })
+    },
+    clearCart(state, payload) {
+      state.cart.length = 0;
     },
     setAccount(state, payload) {
       state.account = payload

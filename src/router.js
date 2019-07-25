@@ -118,7 +118,29 @@ const router = new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ /* webpackPrefetch: true */ './views/About.vue')
-    }
+    },
+    {
+      path: '/toolkit',
+      name: 'toolkit',
+      meta: {
+        guest: true
+      },
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ /* webpackPrefetch: true */ './views/Toolkit.vue')
+    },
+    {
+      path: '/checkout',
+      name: 'checkout',
+      meta: {
+        guest: false
+      },
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ /* webpackPrefetch: true */ './views/Checkout.vue')
+    },
   ]
 });
 
