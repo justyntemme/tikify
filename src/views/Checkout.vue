@@ -90,13 +90,7 @@ export default {
     font-size: 2em;
     margin: 5px;
 }
-iframe {
-    border: solid 1px black;
-}
-.stripe-element {
-  width: 300px;
-  border: 1px solid black;
-}
+
 .stripe-card.complete {
   border-color: green;
 }
