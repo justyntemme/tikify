@@ -5,18 +5,18 @@
             <b-col>
                 <b-card  class="tickets" header="Add Tickets">
                     <b-row>
-                      <b-col  @click="ticketSelect()" class="5-tickets tickets">
+                      <b-col v-bind:class="{ 'selectedClass': (selected === 5) }"  @click="selected = 5" class="5-tickets tickets">
                         <i class="fas fa-4x fa-dollar-sign"></i>
                         <h3> 5 Tickets</h3>
                       </b-col>
 
-                      <b-col @click="ticketSelect(10)" class="10-tickets tickets">
+                      <b-col v-bind:class="{ 'selectedClass': (selected === 10) }" @click="selected = 10" class="10-tickets tickets">
                         <i class="fas fa-4x fa-dollar-sign"></i>
                         <i class="fas fa-4x fa-dollar-sign"></i>
                          <h3> 10 Tickets</h3>
                       </b-col>
 
-                      <b-col @click="ticketSelect(10)" class="25-tickets tickets">
+                      <b-col v-bind:class="{ 'selectedClass': (selected === 25) }" @click="selected = 25" class="25-tickets tickets">
                         <i class="fas fa-4x fa-dollar-sign"></i>
                         <i class="fas fa-4x middle-ticket fa-dollar-sign"></i>
                         <i class="fas fa-4x fa-dollar-sign"></i>
@@ -50,7 +50,7 @@ export default {
     },
     data () {
         return {
-          selected: [],
+          selected: 0,
 
         }
     },
@@ -66,6 +66,10 @@ export default {
 </script>
 
 <style scoped>
+.selectedClass {
+  background-color: blue !important;
+  color: white;
+}
 .tickets {
   border-radius: 10px;
   border: 1px solid #D5D5D5;
