@@ -128,11 +128,6 @@ export default new Vuex.Store({
           accountRef.get().then(accountSnapshot => {
             commit('setAccount', accountSnapshot.data())
           })
-
-          console.log("account ")
-          accountSnapshot.data()
-
-
         })
         .catch((error) => {
           commit('setStatus', 'failure')
