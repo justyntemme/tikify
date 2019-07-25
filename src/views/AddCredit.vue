@@ -25,6 +25,14 @@
                       </b-col>
           
                     </b-row>
+                    <b-row>
+                      <b-col>
+                        <h2>Total: $26</h2>
+
+
+                      </b-col>
+
+                    </b-row>
 
 
                 </b-card>
@@ -67,7 +75,7 @@ export default {
 
 <style scoped>
 .selectedClass {
-  background-color: blue !important;
+  background-color: #CCCC !important;
   color: white;
 }
 .tickets {
@@ -76,9 +84,6 @@ export default {
   margin: 10px;
 }
 
-.tickets::selection {
-
-}
 .middle-ticket {
 
 }

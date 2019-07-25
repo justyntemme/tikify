@@ -58,6 +58,7 @@
 
         <b-row class="checkout">
             <b-col>
+                <button class="checkout">Checkout</button>
                 
             </b-col>
         </b-row>
@@ -84,9 +85,17 @@ export default {
 </script>
 
 <style scoped>
-.stripe-card {
+.checkout {
+    color: white;
+    font-size: 2em;
+    margin: 5px;
+}
+iframe {
+    border: solid 1px black;
+}
+.stripe-element {
   width: 300px;
-  border: 1px solid grey;
+  border: 1px solid black;
 }
 .stripe-card.complete {
   border-color: green;
