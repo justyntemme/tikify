@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="185" height="162" viewBox="0 0 185 162">
+  <g id="Group_3" data-name="Group 3" transform="translate(-97 -49)">
+    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(109 49)" fill="#fff" stroke="#707070" stroke-width="1">
+      <circle cx="81" cy="81" r="81" stroke="none"/>
+      <circle cx="81" cy="81" r="80.5" fill="none"/>
+    </g>
+    <text id="_" data-name="+" transform="translate(97 81)" font-size="80" font-family="Montserrat-Regular, Montserrat"><tspan x="69.5" y="77">+</tspan></text>
+  </g>
+</svg>

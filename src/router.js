@@ -10,6 +10,14 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/logout',
+      name: 'logout',
+      meta: {
+        requiresAuth: true
+      },
+      component: () => import(/* webpackChunkName: "home" */'@/views/Logout.vue')
+    },
+    {
       path: '/',
       name: 'home',
       meta: {
@@ -140,6 +148,17 @@ const router = new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ /* webpackPrefetch: true */ './views/Checkout.vue')
+    },
+    {
+      path: '/influencer/account',
+      name: 'accountinfluencer',
+      meta: {
+        guest: false
+      },
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ /* webpackPrefetch: true */ './views/AccountInfluencer.vue')
     },
   ]
 });

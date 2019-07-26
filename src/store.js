@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as firebase from 'firebase'
+import VuexReset from '@ianwalter/vuex-reset'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  plugins: [VuexReset()],
   state: {
     user: '',
     status: '',
@@ -36,6 +38,8 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    reset: () => {},
+
     setUser(state, payload) {
       state.user = payload
     },
@@ -71,19 +75,27 @@ export default new Vuex.Store({
 
   },
   actions: {
+    logoutAction({commit}, payload){
+      store.commit('reset')
+    },
     setAccountAction({commit}, payload) {
       let v = this;
       let db = firebase.firestore();
-      let accountRef =  db.collection('users').doc(payload);
+      let uid = firebase.auth().currentUser.uid;
+      let accountRef =  db.collection('users').doc(uid);
   
       accountRef.get().then( (accountSnapshot) => {
+
+        let account = accountSnapshot.data()
+        console.log(account)
+        commit('setAccount' ,account)
         
-        commit('setAccount',accountSnapshot.data())
 
       });
   
 
     },
+  
     signUpAction({commit}, payload){
       let v = this;
       let db = firebase.firestore()
@@ -115,6 +127,7 @@ export default new Vuex.Store({
     },
     
     signInAction({commit}, payload) {
+      let v = this;
       let db = firebase.firestore()
       firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){
         firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
@@ -122,12 +135,8 @@ export default new Vuex.Store({
           commit('setUser', response.user.uid)
           commit('setStatus', 'success')
           commit('setError', null)
-
-
-          let accountRef =  db.collection('users').doc(response.user.uid);
-          accountRef.get().then(accountSnapshot => {
-            commit('setAccount', accountSnapshot.data())
-          })
+          v.$store.dispatch('setAccountAction')
+          
         })
         .catch((error) => {
           commit('setStatus', 'failure')
@@ -140,6 +149,7 @@ export default new Vuex.Store({
     signOutAction() {
 
     },
+    
     getProductsAction({commit} ) {
       let products = []
       let db = firebase.firestore()
