@@ -1,5 +1,6 @@
 <template>
   <div class="product">
+
     <b-container>
       <b-row class="justify-content-center">
         <b-col class="col-md-12 col-lg-4 align-self-center">
@@ -37,7 +38,7 @@
 
 <script>
 import firebase from 'firebase'
-import FooterMenu from '@/components/layout/FooterMenu-edit.vue'
+import FooterMenu from '@/components/layout/FooterMenu.vue'
 export default {
     components: {
       FooterMenu

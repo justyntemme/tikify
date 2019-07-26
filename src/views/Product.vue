@@ -20,7 +20,7 @@
 
 
 <script>
-import FooterMenu from '@/components/layout/FooterMenu-post.vue'
+import FooterMenu from '@/components/layout/FooterMenu.vue'
 export default {
   name: 'product',
   props: {

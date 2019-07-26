@@ -37,7 +37,7 @@
 
 <script>
 import firebase from 'firebase'
-import FooterMenu from '@/components/layout/FooterMenu-edit.vue'
+import FooterMenu from '@/components/layout/FooterMenu.vue'
 export default {
     components: {
       FooterMenu

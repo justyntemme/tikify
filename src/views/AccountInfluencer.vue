@@ -56,6 +56,7 @@
             </b-row>
 
         </b-container>
+        <FooterMenu/>
 
 
     </div>
@@ -63,6 +64,7 @@
 
 <script>
 import firebase from 'firebase'
+import FooterMenu from '@/components/layout/FooterMenu.vue'
 export default {
     computed:{
         account:{
@@ -86,6 +88,7 @@ export default {
     }
   },
   components: {
+      FooterMenu
 
   },
   methods: {
@@ -101,6 +104,9 @@ export default {
           })
       }
 
+  },
+  update(){
+      //TODO implament account update
   }
 }
 
