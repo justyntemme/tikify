@@ -4,17 +4,7 @@
         <div id="loader">&hellip;</div>
         <div v-if="currentUser">
           <div v-if="stripeCustomerInitialized">
-            <h3>Credit Cards</h3>
-            <ul>
-              <li v-for="source in sources">
-                <span v-if="source.id">
-                  {{ source.brand }} &hellip;{{ source.last4 }}
-                  (exp. {{ source.exp_month }}/{{ source.exp_year }})
-                </span>
-                <span v-else>&hellip;</span>
-              </li>
-            </ul>
-            <div>
+            <div v-if="!sources[0]">
               <h4>New</h4>
               <div>
                 <label>
@@ -43,6 +33,7 @@
                 {{ newCreditCard.error }}
               </div>
             </div>
+            <!--
             <h3>Charges</h3>
             <ul>
               <li v-for="(charge, id) in charges">
@@ -58,15 +49,13 @@
                 <span v-else>&hellip;</span>
               </li>
             </ul>
-            <h4>New</h4>
+            -->
+            <h4>Checkout</h4>
             <div>
               <label>
                 Card
                 <select v-model="newCharge.source">
-                <option v-for="source in sources">
-                    Card ending in {{source.last4}}
-                </option>
-                  <option v-for="(source, id) in sources" v-bind:value="source.id" v-if="source.id">
+                  <option v-for="(source, id) in sources" v-bind:value="source.id">
                     {{ source.brand }} &hellip;{{ source.last4 }}
                     (exp. {{ source.exp_month }}/{{ source.exp_year }})
                   </option>
@@ -95,6 +84,7 @@ import firebase from 'firebase'
       export default {
         data() {
             return {
+                sources: {},
                 currentUser: firebase.auth().currentUser,
                 stripeCustomerInitialized: true,
                 newCreditCard: {
@@ -114,27 +104,22 @@ import firebase from 'firebase'
         mounted(){
             let v = this;
             Stripe.setPublishableKey('pk_test_NSDcCD0HN1kDUInBR98gbeg900S77Hz86w')
+            
+                   
+            let db = firebase.firestore()
+            let newSources = []
+            db.collection("stripe_customers").doc(v.currentUser.uid).collection("sources").onSnapshot(snapshot => {
+                snapshot.forEach(doc => {
+                    let data = doc.data()
+                    newSources.push(data);
+                })
+                return v.sources = newSources;
+            })
+        
 
         },
         computed: {
-            sources :{
-                get() {
-                    let v = this;
-                    let db = firebase.firestore()
-                    let newSources = []
-                    db.collection("stripe_customers").doc(v.currentUser.uid).collection("sources").onSnapshot(snapshot => {
-                        snapshot.forEach(doc => {
-                            
-                            let id = doc.id;
-                            let data = doc.data()
-                            newSources.push(data);
-                        })
-                    })
-                    console.log(newSources)
-                    return newSources
 
-                }
-            }
         },
 
         methods: {
