@@ -52,21 +52,22 @@
 
 <script>
 import CardCheckout from '@/components/layout/CardCheckout.vue'
+import firebase from 'firebase'
 export default {
     components:{
         CardCheckout
     },
     data () {
         return {
-          selected: 0,
+          selected: null,
 
         }
     },
-    methods:{
-      ticketSelect(){
-        selected[event.target] = !selected[event.target];
+    computed: {
+
       
-      }
+    },
+    methods:{
 
     }
 

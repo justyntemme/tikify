@@ -135,8 +135,6 @@ export default new Vuex.Store({
           commit('setUser', response.user.uid)
           commit('setStatus', 'success')
           commit('setError', null)
-          v.$store.dispatch('setAccountAction')
-          
         })
         .catch((error) => {
           commit('setStatus', 'failure')
