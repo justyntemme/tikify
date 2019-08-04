@@ -47,15 +47,18 @@
             </b-col>
         </b-row>
     </b-container>
+    <FooterMenu/>
 </div>
 </template>
 
 <script>
 import CardCheckout from '@/components/layout/CardCheckout.vue'
+import FooterMenu from '@/components/layout/FooterMenu.vue'
 import firebase from 'firebase'
 export default {
     components:{
-        CardCheckout
+        CardCheckout,
+        FooterMenu
     },
     data () {
         return {

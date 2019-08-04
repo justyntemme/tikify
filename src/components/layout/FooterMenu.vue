@@ -11,9 +11,6 @@
                 <b-col>
                     <router-link :to="{ name: 'products'}"> <b-button class="footer-menu-btn" variant="secondary"><i class="fas fa-list"></i> </b-button></router-link>
                 </b-col>
-                <b-col>
-                    <router-link :to="{ name: 'sales'}"> <b-button class="footer-menu-btn" variant="secondary"><i class="fas fa-money-bill"></i> </b-button></router-link>
-                </b-col>
                 <b-col v-if="$router.currentRoute.name == 'product'">
                     <router-link :to="{ name: 'productedit', params: { product: this.$parent.product}}"><i class="edit-btn fas fa-pencil-alt"/></router-link>
                 </b-col>
@@ -22,6 +19,9 @@
                  </b-col>
                 <b-col>
                     <router-link :to="{ name: 'accountinfluencer'}"> <b-button class="footer-menu-btn" variant="secondary"><i class="fas fa-user"></i> </b-button></router-link>
+                </b-col>
+                <b-col>
+                    <router-link :to="{ name: 'wallet'}"> <b-button class="footer-menu-btn" variant="secondary"><i class="fas fa-wallet"></i> </b-button></router-link>
                 </b-col>
 
 

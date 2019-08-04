@@ -85,6 +85,7 @@ import Navbar from '@/components/layout/Navbar.vue'
                     accountType: v.accountType,
                     dob: v.dob,
                     name: v.name,
+                    tickets: '0'
                 }
                 v.$store.dispatch('signUpAction', user)
             }

@@ -58,7 +58,7 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "influencerinfo" */'@/views/ArtistInfo.vue')
     },
     {
-      path: '/artist/wallet/add',
+      path: '/wallet/add',
       name: 'addcredit',
       meta: {
         requiresAuth: true
@@ -137,6 +137,17 @@ const router = new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ /* webpackPrefetch: true */ './views/Toolkit.vue')
+    },
+    {
+      path: '/wallet',
+      name: 'wallet',
+      meta: {
+        guest: true
+      },
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ /* webpackPrefetch: true */ './views/Wallet.vue')
     },
     {
       path: '/checkout',
