@@ -150,10 +150,10 @@ import firebase from 'firebase'
           },
           submitNewCharge: function() {
             let v = this;
-            v.selected = v.selected * 100
+            let amount = v.selected * 100
             firebase.firestore().collection('stripe_customers').doc(this.currentUser.uid).collection('charges').add({
               source: v.newCharge.source,
-              amount: v.selected
+              amount: amount
             });
             console.log(v.selected)
           },

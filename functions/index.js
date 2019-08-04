@@ -12,14 +12,42 @@ admin.initializeApp();
 
 
 exports.updateTickets = functions.https.onRequest((req, res) => {
+  let db = admin.firestore()
+  let userID = ''
   cors(req, res, () => {
     const thisReqMethod = req.method
 
     if (thisReqMethod === 'POST') {
-      let email = req.body.data.object.metadata.customer_email
-      console.log(req.body.data.object)
+      let amount = req.body.data.object.amount
+      let customer_id = req.body.data.object.customer;
+      console.log(customer_id)
+      console.log(amount)
       res.status(200).send();
-      console.log(email)
+
+      let customerRef = admin.firestore().collection('stripe_customers')
+      customerRef.where("customer_id" , "==", customer_id).get()
+        .then(function(querySnapshot) {
+          querySnapshot.forEach(function(doc) {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+            userID = doc.id
+            db.collection('users').doc(userID).get()
+            .then(function(user) {
+              let data = user.data()
+              console.log(user.data())
+              let newTickets = Number(amount) / 100
+              let totalTickets = Number(data.tickets) + newTickets
+              db.collection('users').doc(userID).update({
+                tickets: totalTickets
+              })
+
+            })
+            
+        });
+        })
+
+
+    /** 
       admin.auth().getUserByEmail(email)
       .then(function(userRecord) {
 
@@ -37,6 +65,7 @@ exports.updateTickets = functions.https.onRequest((req, res) => {
           } else {
             console.log("couldn't find user by user id " . uid)
           }
+          
         })
 
 
@@ -45,10 +74,12 @@ exports.updateTickets = functions.https.onRequest((req, res) => {
       .catch(function(error) {
       console.log('Error fetching user data:', error);
       });
+      */
             }
     
               
   });
+  
 });
 
 
@@ -72,6 +103,8 @@ exports.createStripeCharge = functions.firestore.document('stripe_customers/{use
         const response = await stripe.charges.create(charge, {idempotency_key: idempotencyKey});
         // If the result is successful, write it back to the database
         return snap.ref.set(response, { merge: true });
+
+        
       } catch(error) {
         // We want to capture errors and render them in a user-friendly way, while
         // still logging an exception with StackDriver
@@ -79,6 +112,7 @@ exports.createStripeCharge = functions.firestore.document('stripe_customers/{use
         await snap.ref.set({error: userFacingMessage(error)}, { merge: true });
         return reportError(error, {user: context.params.userId});
       }
+
     });
 // [END chargecustomer]]
 
