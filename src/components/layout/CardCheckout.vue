@@ -62,11 +62,7 @@
                 </select>
               </label>
             </div>
-            <div>
-              <label>
-                Amount <input v-model="newCharge.amount">
-              </label>
-            </div>
+
             <div>
               <button v-on:click="submitNewCharge">Charge</button>
               {{ newCharge.error }}
@@ -82,6 +78,9 @@
 <script>
 import firebase from 'firebase'
       export default {
+        props: {
+          selected: Number
+        },
         data() {
             return {
                 sources: {},
@@ -97,7 +96,7 @@ import firebase from 'firebase'
                 charges: {},
                 newCharge: {
                     source: null,
-                    amount: 2000
+                    amount: Number(this.selected)
                 }
             }
         },
@@ -150,13 +149,16 @@ import firebase from 'firebase'
             });
           },
           submitNewCharge: function() {
+            let v = this;
+            v.selected = v.selected * 100
             firebase.firestore().collection('stripe_customers').doc(this.currentUser.uid).collection('charges').add({
-              source: this.newCharge.source,
-              amount: parseInt(this.newCharge.amount)
+              source: v.newCharge.source,
+              amount: v.selected
             });
+            console.log(v.selected)
           },
           signOut: function() {
-            firebase.auth().signOut()
+            firebase.austh().signOut()
           }
         }
       }

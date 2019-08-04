@@ -17,7 +17,9 @@ exports.updateTickets = functions.https.onRequest((req, res) => {
 
     if (thisReqMethod === 'POST') {
       let email = req.body.data.object.metadata.customer_email
+      console.log(req.body.data.object)
       res.status(200).send();
+      console.log(email)
       admin.auth().getUserByEmail(email)
       .then(function(userRecord) {
 
@@ -25,7 +27,7 @@ exports.updateTickets = functions.https.onRequest((req, res) => {
         let db = admin.firestore();
 
         let userRef = db.collection('users');
-        //console.log("tickets= " . user.tickets) 
+        console.log("tickets= " . user.tickets) 
         
         userRef.doc(uid).get().then(function(doc) {
           if (doc.exists) {

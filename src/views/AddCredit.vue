@@ -27,7 +27,7 @@
                     </b-row>
                     <b-row>
                       <b-col>
-                        <h2>Total: $26</h2>
+                        <h2>Total: ${{selected}}</h2>
 
 
                       </b-col>
@@ -42,7 +42,7 @@
 
         <b-row class="checkout">
             <b-col>
-                <CardCheckout/>
+                <CardCheckout :selected='selected'/>
                 
             </b-col>
         </b-row>
