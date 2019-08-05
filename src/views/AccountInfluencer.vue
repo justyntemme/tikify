@@ -5,9 +5,22 @@
                 <b-col class="content-col">
                     <div class="col-12">
                         <b-row>
+                            
                             <b-col class="justify-content-center">
+                                
                                 <img src="@/assets/add-image.svg">
+
                             </b-col>
+                        </b-row>
+                        <b-row>
+
+                            <b-col>
+                                Profile Image
+                                <input type="file" @change="onFileChanged">
+                                <button @click="onUpload">Upload!</button>
+
+                            </b-col>
+
                         </b-row>
                         <b-row>
                             <b-col class="col-4 justify-content-left">
@@ -82,16 +95,37 @@ export default {
 
 
   },
-  data() {
-    return {
+data() {
+  return {
+    selectedFile: null
+  }
+},
 
-    }
-  },
   components: {
       FooterMenu
 
   },
   methods: {
+        onFileChanged (event) {
+            this.selectedFile = event.target.files[0]
+        },
+        onUpload() {
+            let file = this.selectedFile;
+            // upload file, get it from this.selectedFile
+            // Get current username
+        var user = firebase.auth().currentUser.uid;
+
+        // Create a Storage Ref w/ username
+        var storageRef = firebase.storage().ref(user + '/profilePicture/' + file.name);
+
+        // Upload file
+        var task = storageRef.put(file).then(function(){
+            alert("image uploaded successfully")
+        })
+        .catch(function(error){
+            console.log(errorS)
+        })
+        },
       resetPassword(){
           let v = this;
           var auth = firebase.auth();
