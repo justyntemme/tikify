@@ -29,7 +29,6 @@ exports.updateTickets = functions.https.onRequest((req, res) => {
         .then(function(querySnapshot) {
           querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
             userID = doc.id
             db.collection('users').doc(userID).get()
             .then(function(user) {

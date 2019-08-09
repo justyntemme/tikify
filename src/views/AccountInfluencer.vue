@@ -8,16 +8,16 @@
                             
                             <b-col class="justify-content-center">
                                 
-                                <img src="@/assets/add-image.svg">
+                                <img class="profile-photo" :src="account.profileIMG">
 
                             </b-col>
                         </b-row>
                         <b-row>
 
                             <b-col>
-                                Profile Image
-                                <input type="file" @change="onFileChanged">
-                                <button @click="onUpload">Upload!</button>
+                                <button @click="trigger" class="trigger">Change Photo</button>
+                                <input ref="fileInput" type="file" @change="onFileChanged">
+                                
 
                             </b-col>
 
@@ -90,14 +90,11 @@ export default {
     mounted() {
         let v = this;
         v.$store.dispatch('setAccountAction')
-        
-        console.log(v.$store.getters.account)
-
-
-  },
+    },
 data() {
   return {
-    selectedFile: null
+    selectedFile: null,
+    profileIMG: null,
   }
 },
 
@@ -106,48 +103,73 @@ data() {
 
   },
   methods: {
+        update(){
+            let v = this;
+            var user = firebase.auth().currentUser.uid;
+            //TODO implament account update
+            console.log("hit")
+            let db = firebase.firestore()
+            let userRef = db.collection('users').doc(user)
+            console.log(v.account.bio)
+            userRef.update({'bio': v.account.bio})
+        },
+        trigger () {
+    	    this.$refs.fileInput.click()
+        },
         onFileChanged (event) {
             this.selectedFile = event.target.files[0]
+            this.onUpload()
         },
         onUpload() {
+            let v = this;
             let file = this.selectedFile;
+            let db = firebase.firestore()
             // upload file, get it from this.selectedFile
             // Get current username
-        var user = firebase.auth().currentUser.uid;
+            var user = firebase.auth().currentUser.uid;
 
-        // Create a Storage Ref w/ username
-        var storageRef = firebase.storage().ref(user + '/profilePicture/' + file.name);
+            // Create a Storage Ref w/ username
+            var storageRef = firebase.storage().ref(user + '/profilePicture/' + file.name);
 
-        // Upload file
-        var task = storageRef.put(file).then(function(){
-            alert("image uploaded successfully")
-        })
-        .catch(function(error){
-            console.log(errorS)
-        })
-        },
-      resetPassword(){
-          let v = this;
-          var auth = firebase.auth();
-          var emailAddress = v.account.email
+            // Upload file
+            var task = storageRef.put(file).then(function(){
+                storageRef.getDownloadURL().then(function(url){
+                    let userRef = db.collection('users').doc(user)
+                    userRef.update({'profileIMG': url}).then(function(){
+                            v.$store.dispatch('setAccountAction')
+                            console.log("image uploaded successfully")
+                        })
+                })
 
-          auth.sendPasswordResetEmail(emailAddress).then(function(){
-              alert("Reset Email Sent")
-          }).catch(function(error) {
-              console.log(error)
-          })
-      }
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+            },
+        resetPassword(){
+            let v = this;
+            var auth = firebase.auth();
+            var emailAddress = v.account.email
 
+            auth.sendPasswordResetEmail(emailAddress).then(function(){
+                alert("Reset Email Sent")
+            }).catch(function(error) {
+                console.log(error)
+            })
+        }
   },
-  update(){
-      //TODO implament account update
-  }
+
 }
 
 
 </script>
 
 <style scoped>
+.profile-photo {
+    height: 150px;
+    width: 150px;
+    border-radius: 40px;
+}
 .content-col {
     margin-top: 20px;
 }
@@ -155,6 +177,24 @@ data() {
 h3 {
     text-align: left;
     margin: 5px;
+}
+
+button {
+    background-color: #C40057 !important;
+    color: white;
+    border: 0px;
+    font-size: 1.5em;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+input[type=file] {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
 }
 
 </style>

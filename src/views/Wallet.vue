@@ -1,6 +1,7 @@
 <template>
     <div class="wallet">
-        <div class="artist">
+
+        <div class="artist" v-if="account.accountType == 'artist'" >
             <b-container>
                 <b-row>
                     <b-col class="col-4 ">
@@ -51,6 +52,7 @@ export default {
 
             let account = accountSnapshot.data()
             v.account = account
+            console.log(account.accountType)
 
       });
         
