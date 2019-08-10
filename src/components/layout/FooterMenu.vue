@@ -15,6 +15,9 @@
                 <b-col v-if="$router.currentRoute.name != 'accountinfluencer'">
                     <router-link :to="{ name: 'accountinfluencer'}"> <b-button class="footer-menu-btn" variant="secondary"><i class="fas fa-user"></i> </b-button></router-link>
                 </b-col>
+                <b-col v-if="$router.currentRoute.name != 'findinfluencer'">
+                    <router-link :to="{ name: 'findinfluencer'}"> <b-button class="footer-menu-btn" variant="secondary"><i class="fas fa-search"></i> </b-button></router-link>
+                </b-col>
                 <b-col v-if="$router.currentRoute.name != 'wallet'">
                     <router-link :to="{ name: 'wallet'}"> <b-button class="footer-menu-btn" variant="secondary"><i class="fas fa-wallet"></i> </b-button></router-link>
                 </b-col>
@@ -36,7 +39,6 @@
 <script>
 export default {
     mounted(){
-            console.log(this.$router.currentRoute)
     
  
     }

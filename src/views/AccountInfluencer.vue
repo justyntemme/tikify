@@ -5,7 +5,6 @@
                 <b-col class="content-col">
                     <div class="col-12">
                         <b-row>
-                            
                             <b-col class="justify-content-center">
                                 
                                 <img class="profile-photo" :src="account.profileIMG">
@@ -106,15 +105,12 @@ data() {
         update(){
             let v = this;
             var user = firebase.auth().currentUser.uid;
-            //TODO implament account update
-            console.log("hit")
             let db = firebase.firestore()
             let userRef = db.collection('users').doc(user)
-            console.log(v.account.bio)
             userRef.update({'bio': v.account.bio})
         },
         trigger () {
-    	    this.$refs.fileInput.click()
+            this.$refs.fileInput.click()
         },
         onFileChanged (event) {
             this.selectedFile = event.target.files[0]
@@ -132,18 +128,17 @@ data() {
             var storageRef = firebase.storage().ref(user + '/profilePicture/' + file.name);
 
             // Upload file
-            var task = storageRef.put(file).then(function(){
+            storageRef.put(file).then(function(){
                 storageRef.getDownloadURL().then(function(url){
                     let userRef = db.collection('users').doc(user)
                     userRef.update({'profileIMG': url}).then(function(){
                             v.$store.dispatch('setAccountAction')
-                            console.log("image uploaded successfully")
                         })
                 })
 
             })
             .catch(function(error){
-                console.log(error)
+                alert(error)
             })
             },
         resetPassword(){
@@ -154,7 +149,7 @@ data() {
             auth.sendPasswordResetEmail(emailAddress).then(function(){
                 alert("Reset Email Sent")
             }).catch(function(error) {
-                console.log(error)
+                alert(error)
             })
         }
   },
