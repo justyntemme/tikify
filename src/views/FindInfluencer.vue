@@ -23,7 +23,7 @@
                                     {{influencer.bio}}
                                 </b-card-text>
                                 </b-card-body>
-                                <button>View Profile</button>
+                                 <router-link :to="{ name: 'influencer', params: { influencer: influencer}}"><button>View Pofile</button></router-link>
                             </b-col>
                         </b-row>
                     </b-card>
@@ -50,7 +50,8 @@ export default {
       .where("accountType", "==", 'Influencer' )
       userCollection.onSnapshot((userRef) => {
         userRef.forEach((doc) => {
-          const influencer = doc.data();
+          let influencer = doc.data();
+          influencer.id = doc.id;
           v.influencers.push(influencer)
         });
      

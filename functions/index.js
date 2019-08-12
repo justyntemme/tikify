@@ -10,6 +10,52 @@ const currency = functions.config().stripe.currency || 'USD';
 
 admin.initializeApp();
 
+exports.spendTickets = functions.https.onRequest((req, res) => {
+  cors(req, res, () => {
+    const thisReqMethod = req.method
+    if (thisReqMethod === 'POST') {
+      console.log(req.body)
+
+      let db = admin.firestore()
+      let artistUID = req.body.artistUID;
+      console.log(artistUID)
+      let influencerUID = req.body.influencerUID;
+      console.log(influencerUID)
+      let info = req.body.info
+ 
+      
+
+      db.collection('users').doc(artistUID).collection('transactions').add({
+        artistUID: artistUID,
+        influencerUID: influencerUID
+        })
+        .then(function(docRef) {
+            db.collection('users').doc(influencerUID).collection('tranactions').doc(docRef.id).set({
+              artistUID: artistUID,
+              influencerUID: influencerUID
+            })
+            .then(function(){
+              db.collection('conversations').doc(docRef.id).set({
+                artistUID: artistUID,
+                influencerUID: influencerUID
+              })
+              .then(function(){
+                db.collection('conversations').doc(docRef.id).collection('messages').add({
+                  author: artistUID,
+                  message: info
+                })
+                .then(function(){
+                  res.status(200).send();
+                })
+              })
+            })
+            
+        })
+        
+    }
+  })
+})
+
 
 exports.updateTickets = functions.https.onRequest((req, res) => {
   let db = admin.firestore()
