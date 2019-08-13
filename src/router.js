@@ -162,6 +162,12 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "about" */ /* webpackPrefetch: true */ './views/Checkout.vue')
     },
     {
+      path: '/conversation',
+      name: 'conversation',
+      props: true,
+      component: () => import(/* webpackChunkName: "productedit" */'@/views/Conversation.vue')
+    },
+    {
       path: '/influencer',
       name: 'influencer',
       props: true,

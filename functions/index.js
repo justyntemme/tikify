@@ -45,7 +45,7 @@ exports.spendTickets = functions.https.onRequest((req, res) => {
                   message: info
                 })
                 .then(function(){
-                  res.status(200).send();
+                  res.status(200).send(docRef.id);
                 })
               })
             })

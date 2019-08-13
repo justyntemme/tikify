@@ -46,14 +46,20 @@
 
               <b-modal id="modal-1" title="Checkout" hide-footer>
                 <p class="my-4">Please list the information and all requried links the influencer will need for your purchase</p>
-                <b-form-input>
-
-
-                </b-form-input>
+                <label for="input-lazy">Text input with lazy formatter (on blur)</label>
+                <b-form-input
+                id="input-lazy"
+                v-model="info"
+                :formatter="format"
+                placeholder="Enter your name"
+                aria-describedby="input-lazy-help"
+                lazy-formatter
+                ></b-form-input>
+                <b-form-text id="input-lazy-help">This one is a little lazy!</b-form-text>
 
                 <p>Total: 20 tickets</p>
 
-                <button>Checkout</button>
+                <button @click="checkout">Checkout</button>
             </b-modal>
 
 
@@ -67,12 +73,43 @@
 
 <script>
 import Footermenu from '@/components/layout/FooterMenu.vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import router from 'vue-router'
+
 export default {
     props: {
         influencer: {}
     },
     components:{
         Footermenu
+    },
+    methods:{
+        checkout(){
+            let v = this;
+            console.log(v.info)
+                axios.post(v.url, {
+                    influencerUID: v.influencerUID,
+                    artistUID: v.artistUID,
+                    info: v.info
+                })
+                .then(function (response) {
+                    v.$router.push({ name: 'conversation', params: {conversationID: response.data }})
+                })
+                .catch(function (error) {
+                    alert(error)
+                });
+            
+
+        }
+    },
+    data() {
+        return {
+            influencerUID: '6dF0u3vpX1ezgGlijBTE0fflrnE3',
+            artistUID: 'FajAOZS5xnWzXSCjHOc98WYKESn1',
+            info: '',
+            url: 'https://us-central1-tikify-e74ea.cloudfunctions.net/spendTickets'
+        }
     }
 
 }
