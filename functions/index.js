@@ -36,7 +36,7 @@ exports.spendTickets = functions.https.onRequest((req, res) => {
         info: info
         })
         .then(function(docRef) {
-            db.collection('users').doc(influencerUID).collection('tranactions').doc(docRef.id).set({
+            db.collection('users').doc(influencerUID).collection('transactions').doc(docRef.id).set({
               artistUID: artistUID,
               influencerUID: influencerUID,
               purchaseType: purchaseType,

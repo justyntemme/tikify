@@ -11,18 +11,18 @@
             <div v-for="message in messages">
                 <b-row v-if="isMe(message.author)"  v-bind:class="{'isMe': isMe(message.author), 'notme': !isMe(message.author) }">
                     <b-col md="6" offset="6">
-                        <b-card>
+                        <b-card class="speech-bubble-me">
                             <b-card-body>
                                 {{message.message}}
                             </b-card-body>
-                            <b-card-footer>Me</b-card-footer>
+      
                         </b-card>
                     </b-col>
                 </b-row>
 
                 <b-row v-if="isNotMe(message.author)"  v-bind:class="{'isMe': isMe(message.author), 'notme': !isMe(message.author) }">
-                    <b-col md="6">
-                        <b-card>
+                    <b-col class="col-6">
+                        <b-card class="speech-bubble-not-me">
                             <b-card-body>
                                 {{message.message}}
                             </b-card-body>
@@ -138,4 +138,19 @@ export default {
 .isme {
 
 }
+
+.speech-bubble-me {
+	position: relative;
+	background: gray;
+	border-radius: 1em;
+    color: white;
+}
+
+.speech-bubble-not-me {
+	position: relative;
+	background: #C40057;
+	border-radius: 1em;
+    color: white;
+}
+
 </style>
