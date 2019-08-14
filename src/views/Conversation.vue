@@ -8,11 +8,32 @@
                 </b-col>
 
             </b-row>
-            <b-row v-for="message in messages">
-                <b-col>
-                    {{message.message}}
-                </b-col>
-            </b-row>
+            <div v-for="message in messages">
+                <b-row v-if="isMe(message.author)"  v-bind:class="{'isMe': isMe(message.author), 'notme': !isMe(message.author) }">
+                    <b-col md="6" offset="6">
+                        <b-card>
+                            <b-card-body>
+                                {{message.message}}
+                            </b-card-body>
+                            <b-card-footer>Me</b-card-footer>
+                        </b-card>
+                    </b-col>
+                </b-row>
+
+                <b-row v-if="isNotMe(message.author)"  v-bind:class="{'isMe': isMe(message.author), 'notme': !isMe(message.author) }">
+                    <b-col md="6">
+                        <b-card>
+                            <b-card-body>
+                                {{message.message}}
+                            </b-card-body>
+                    
+                        </b-card>
+                    </b-col>
+                </b-row>
+
+            </div>
+            
+
 
             <b-row>
                 <b-form-input
@@ -46,6 +67,22 @@ export default {
         }
     },
     methods:{
+        isMe(author) {
+            if (author == firebase.auth().currentUser.uid)
+            {
+                return true
+            } else {
+                return false
+            }
+        },
+        isNotMe(author) {
+            if (author == firebase.auth().currentUser.uid) {
+                return false
+            } else {
+                return true
+            }
+                
+        },
         send() {
                 let db = firebase.firestore()
                 let v = this;
@@ -57,6 +94,7 @@ export default {
                     message: v.message,
                     timestamp: firebase.firestore.Timestamp.now()
                 })
+                v.message = ''
 
         }
     },
@@ -97,5 +135,7 @@ export default {
 </script>
 
 <style scoped>
+.isme {
 
+}
 </style>
