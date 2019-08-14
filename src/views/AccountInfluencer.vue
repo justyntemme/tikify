@@ -38,6 +38,37 @@
                             </b-col>
                         </b-row>
                         <b-row>
+                            <b-col class="col-12">
+                                <h3>Ticket Prices</h3>
+                            </b-col>
+                        </b-row>
+                        <br>
+                         <b-row>
+                            <b-col>
+                                <label class="">Post: </label>
+                            </b-col>
+                            <b-col>
+                                <input v-model="account.postPrice" type="number" min="0" max="100"/> 
+                            </b-col>
+                         </b-row>
+                         <b-row>
+
+                            <b-col>
+                                <label class="">React: </label>
+                            </b-col>
+                            <b-col>
+                                <input v-model="account.reactPrice" type="number" min="0" max="100"/> 
+                            </b-col>
+                         </b-row>
+                         <b-row>
+                            <b-col>
+                                <label class="">Duet: </label>
+                            </b-col>
+                            <b-col>
+                                <input v-model="account.duetPrice" type="number" min="0" max="100"/> 
+                            </b-col>
+                        </b-row>
+                        <b-row>
                             <b-col class="col-4">
                                 <h3 class="">Email</h3>
                             </b-col>
@@ -107,7 +138,8 @@ data() {
             var user = firebase.auth().currentUser.uid;
             let db = firebase.firestore()
             let userRef = db.collection('users').doc(user)
-            userRef.update({'bio': v.account.bio})
+            userRef.update({'bio': v.account.bio, 'postPrice': v.account.postPrice, 'reactPrice': v.account.reactPrice, 'duetPrice': v.account.duetPrice})
+            
         },
         trigger () {
             this.$refs.fileInput.click()

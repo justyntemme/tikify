@@ -22,17 +22,26 @@ exports.spendTickets = functions.https.onRequest((req, res) => {
       let influencerUID = req.body.influencerUID;
       console.log(influencerUID)
       let info = req.body.info
+      let timestamp = req.body.timestamp
+      let purchaseType = req.body.purchaseType
+      let amount = req.body.amount
  
       
 
       db.collection('users').doc(artistUID).collection('transactions').add({
         artistUID: artistUID,
-        influencerUID: influencerUID
+        influencerUID: influencerUID,
+        purchaseType: purchaseType,
+        amount: amount,
+        info: info
         })
         .then(function(docRef) {
             db.collection('users').doc(influencerUID).collection('tranactions').doc(docRef.id).set({
               artistUID: artistUID,
-              influencerUID: influencerUID
+              influencerUID: influencerUID,
+              purchaseType: purchaseType,
+              amount: amount,
+              info: info
             })
             .then(function(){
               db.collection('conversations').doc(docRef.id).set({
@@ -40,13 +49,7 @@ exports.spendTickets = functions.https.onRequest((req, res) => {
                 influencerUID: influencerUID
               })
               .then(function(){
-                db.collection('conversations').doc(docRef.id).collection('messages').add({
-                  author: artistUID,
-                  message: info
-                })
-                .then(function(){
-                  res.status(200).send(docRef.id);
-                })
+                res.status(200).send(docRef.id);
               })
             })
             

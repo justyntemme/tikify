@@ -34,30 +34,26 @@
             <br>
             <b-row class="start-transaction">
                 <b-col class="col-12"> 
-                    <button  v-b-modal.modal-1>Buy a Post on tiktok</button>
+                    <button @click="purchaseType='post'"  v-b-modal.modal-1>Buy a Post on tiktok</button>
+                </b-col>
+                <b-col  class="col-12"> 
+                    <button @click="purchaseType='duet'"  v-b-modal.modal-1>Buy a Duet on tiktok</button>
                 </b-col>
                 <b-col class="col-12"> 
-                    <button>Buy a Duet on tiktok</button>
-                </b-col>
-                <b-col class="col-12"> 
-                    <button>Buy a Reply on tiktok</button>
+                    <button @click="purchaseType='react'"  v-b-modal.modal-1>Buy a React on tiktok</button>
                 </b-col>
             </b-row>
 
               <b-modal id="modal-1" title="Checkout" hide-footer>
-                <p class="my-4">Please list the information and all requried links the influencer will need for your purchase</p>
-                <label for="input-lazy">Text input with lazy formatter (on blur)</label>
+    
+                <label for="input-lazy">Please list the information and all requried links the influencer will need for your purchase</label>
                 <b-form-input
                 id="input-lazy"
                 v-model="info"
-                :formatter="format"
-                placeholder="Enter your name"
                 aria-describedby="input-lazy-help"
                 lazy-formatter
                 ></b-form-input>
-                <b-form-text id="input-lazy-help">This one is a little lazy!</b-form-text>
-
-                <p>Total: 20 tickets</p>
+                <b-form-text id="input-lazy-help">Total: {{total}}</b-form-text>
 
                 <button @click="checkout">Checkout</button>
             </b-modal>
@@ -76,6 +72,7 @@ import Footermenu from '@/components/layout/FooterMenu.vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import router from 'vue-router'
+import firebase from 'firebase'
 
 export default {
     props: {
@@ -87,11 +84,13 @@ export default {
     methods:{
         checkout(){
             let v = this;
-            console.log(v.info)
                 axios.post(v.url, {
-                    influencerUID: v.influencerUID,
+                    influencerUID: v.influencer.id,
                     artistUID: v.artistUID,
-                    info: v.info
+                    info: v.info,
+                    timestamp: v.timestamp,
+                    amount: v.total,
+                    purchaseType: v.purchaseType
                 })
                 .then(function (response) {
                     v.$router.push({ name: 'conversation', params: {conversationID: response.data }})
@@ -103,12 +102,33 @@ export default {
 
         }
     },
+    computed:{
+        total: {
+            get() {
+                return 10
+
+            }
+        },
+        artistUID: {
+            get() {
+                let uid = firebase.auth().currentUser.uid
+                return uid
+            }
+        }
+    },
+    mounted() {
+        let v = this;
+        
+
+    },
     data() {
         return {
-            influencerUID: '6dF0u3vpX1ezgGlijBTE0fflrnE3',
-            artistUID: 'FajAOZS5xnWzXSCjHOc98WYKESn1',
             info: '',
-            url: 'https://us-central1-tikify-e74ea.cloudfunctions.net/spendTickets'
+            url: 'https://us-central1-tikify-e74ea.cloudfunctions.net/spendTickets',
+            price: 0,
+            timestamp: null,
+            purchaseType: ''
+            
         }
     }
 
