@@ -49,6 +49,8 @@
 
         </b-container>
 
+        <FooterMenu/>
+
 
     </div>
     
@@ -56,6 +58,7 @@
 
 <script>
 import firebase from 'firebase'
+import FooterMenu from '@/components/layout/FooterMenu.vue'
 export default {
     props: ['conversationID'],
     data() {
@@ -65,6 +68,9 @@ export default {
             influencerUID: '',
             transaction: {}
         }
+    },
+    components:{
+        FooterMenu
     },
     methods:{
         isMe(author) {
