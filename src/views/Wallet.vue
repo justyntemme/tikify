@@ -16,13 +16,9 @@
                 <b-row v-for="transaction in transactions">
                     <b-col>
                         <b-card>
-                            <b-card-header>{{transaction.purchaseType}} </b-card-header>
-
+                            <b-card-header>Transaction for {{getUsername(transaction.artistUID)}} and {{getUsername(transaction.influencerUID)}}</b-card-header>
                             <b-card-body>{{transaction.info}}</b-card-body>
-
-                            <button @click="viewConversation(transaction.id)">View Conversation</button>
-                            
-
+                            <button @click="viewConversation(transaction.id)">View Conversation</button> 
                         </b-card>
 
                     </b-col>
@@ -44,7 +40,7 @@
 <script>
 import Footermenu from '@/components/layout/FooterMenu.vue'
 import firebase, { firestore } from 'firebase'
-import { Promise } from 'q';
+
 export default {
     components: {
         Footermenu
@@ -54,21 +50,32 @@ export default {
             account: {},
             transactions: [],
             users: {},
+            accountType: this.$store.getters.account.accountType,
+            influencerName: '',
+            artistName: '',
+            names: {},
 
         }
     },
     computed:{
+    
 
     },
     methods: {
         getUsername(uid) {
+            let v = this;
             let db = firebase.firestore()
             let accountRef = db.collection('users').doc(uid)
-            accountRef.get().then( (accountSnapshot) =>{
+            let account = accountRef.get().then( (accountSnapshot) =>{
                 let account  = accountSnapshot.data()
-                return account.name
+                v.uid = account.name
                 
             })
+            .then(function(account){
+                console.log(account.name)
+            })
+            return v.uid
+            
 
         },
         viewConversation(conversationID){
@@ -92,14 +99,17 @@ export default {
 
       });
 
+
         let transactionCollection = db.collection('users').doc(uid).collection('transactions')
         transactionCollection.onSnapshot((transaction) => {
             transaction.forEach((doc) => {
                 let data = doc.data()
                 data.id = doc.id
                 v.transactions.push(data)
-            })
-        })
+
+                })
+                    
+                })
         
     }
     
