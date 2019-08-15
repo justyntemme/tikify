@@ -3,12 +3,12 @@
         <b-container>
             <b-row>
                 <b-col>
-                    <b-card v-if="accountType == 'Influencer'" :header="artistName" :sub-title="transaction.amount">
+                    <b-card v-if="accountType == 'Influencer'" :header="artistName" >
                         <b-card-body>
                             {{transaction.info}}
                         </b-card-body>
                     </b-card>
-                    <b-card v-else :header="influencerName" :sub-title="transaction.amount">
+                    <b-card v-else :header="influencerName" >
                         <b-card-body>
                             {{transaction.info}}
                         </b-card-body>
@@ -21,7 +21,7 @@
             <div v-for="message in messages">
 
                 <b-row v-if="isMe(message.author)"  v-bind:class="{'isMe': isMe(message.author), 'notme': !isMe(message.author) }">
-                    <b-col class="col-6" offset="8">
+                    <b-col class="col-6" offset="6">
                         <b-card bg-variant="dark" class="speech-bubble-me text-card">
                             <b-card-text>
                                 {{message.message}}
