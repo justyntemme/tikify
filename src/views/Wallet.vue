@@ -16,7 +16,7 @@
                 <b-row v-for="transaction in transactions">
                     <b-col>
                         <b-card>
-                            <b-card-header>Transaction for {{getUsername(transaction.artistUID)}} and {{getUsername(transaction.influencerUID)}}</b-card-header>
+                            <b-card-header>Transaction for {{names[transaction.artistUID]}} and {{names[transaction.influencerUID]}} </b-card-header>
                             <b-card-body>{{transaction.info}}</b-card-body>
                                 <button @click="viewConversation(transaction.id)">View Conversation</button> 
                         </b-card>
@@ -68,10 +68,12 @@ export default {
             let accountRef = db.collection('users').doc(uid)
             let account = accountRef.get().then( (accountSnapshot) =>{
                 let account  = accountSnapshot.data()
-                v.uid = account.name
+                v.$set(v.names, uid, account.name)
+                v.names[uid] = account.name
+       
                 
             })
-            return v.uid
+            return v.names[uid]
             
 
         },
@@ -86,13 +88,12 @@ export default {
         let db = firebase.firestore();
         let uid = firebase.auth().currentUser.uid;
         let accountRef =  db.collection('users').doc(uid);
-        console.log(v.getUsername(uid))
     
         accountRef.get().then( (accountSnapshot) => {
 
             let account = accountSnapshot.data()
             v.account = account
-            console.log(account.accountType)
+        
 
       });
 
@@ -103,6 +104,14 @@ export default {
                 let data = doc.data()
                 data.id = doc.id
                 v.transactions.push(data)
+                v.getUsername(data.artistUID)
+                v.getUsername(data.influencerUID)
+
+                console.log(data.artistUID)
+                console.log(v.names[data.artistUID])
+                console.log(data.influencerUID)
+                console.log(v.names[data.influencerUID])
+
 
                 })
                     
