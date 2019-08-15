@@ -3,29 +3,40 @@
         <b-container>
             <b-row>
                 <b-col>
-                    {{transaction.info}}
+                    <b-card v-if="accountType == 'Influencer'" :header="artistName" :sub-title="transaction.amount">
+                        <b-card-body>
+                            {{transaction.info}}
+                        </b-card-body>
+                    </b-card>
+                    <b-card v-else :header="influencerName" :sub-title="transaction.amount">
+                        <b-card-body>
+                            {{transaction.info}}
+                        </b-card-body>
+                    </b-card>
+                    
 
                 </b-col>
 
             </b-row>
             <div v-for="message in messages">
+
                 <b-row v-if="isMe(message.author)"  v-bind:class="{'isMe': isMe(message.author), 'notme': !isMe(message.author) }">
-                    <b-col md="6" offset="6">
-                        <b-card class="speech-bubble-me">
-                            <b-card-body>
+                    <b-col class="col-4" offset="8">
+                        <b-card bg-variant="dark" class="speech-bubble-me text-card">
+                            <b-card-text>
                                 {{message.message}}
-                            </b-card-body>
+                            </b-card-text>
       
                         </b-card>
                     </b-col>
                 </b-row>
 
                 <b-row v-if="isNotMe(message.author)"  v-bind:class="{'isMe': isMe(message.author), 'notme': !isMe(message.author) }">
-                    <b-col class="col-6">
-                        <b-card class="speech-bubble-not-me">
-                            <b-card-body>
+                    <b-col class="col-3">
+                        <b-card class="speech-bubble-not-me text-card">
+                            <b-card-text>
                                 {{message.message}}
-                            </b-card-body>
+                            </b-card-text>
                     
                         </b-card>
                     </b-col>
@@ -37,6 +48,7 @@
 
             <b-row>
                 <b-form-input
+                    ref="sendMessage"
                     id="input-lazy"
                     v-model="message"
                     aria-describedby="input-lazy-help"
@@ -65,8 +77,14 @@ export default {
         return {
             messages: [],
             message: '',
+
             influencerUID: '',
-            transaction: {}
+            artistUID: '',
+            transaction: {},
+
+            artistName: '',
+            influencerName: '',
+            accountType: this.$store.getters.account.accountType
         }
     },
     components:{
@@ -106,18 +124,36 @@ export default {
     },
 
     mounted() {
+
+        
                 let db = firebase.firestore()
                 let v = this;
-                let artistUID = firebase.auth().currentUser.uid
-
-                let transactionRef = db.collection('users').doc(artistUID).collection('transactions').doc(v.conversationID)
+                let UID = firebase.auth().currentUser.uid
+                
+                v.$store.dispatch('setAccountAction')
+                let transactionRef = db.collection('users').doc(UID).collection('transactions').doc(v.conversationID)
                 transactionRef.get().then((transaction)=> {
                     let data = transaction.data()
                     console.log(data)
                     v.transaction = data
-                    console.log (v.transaction)
 
                 })
+                .then(function(){
+                    let artistRef = db.collection('users').doc(v.transaction.artistUID)
+                    artistRef.get().then((artist) => {
+                        let data = artist.data()
+                        v.artistName = data.name
+                    })
+                    let influencerRef = db.collection('users').doc(v.transaction.influencerUID)
+                    influencerRef.get().then((influencer) => {
+                        let data = influencer.data()
+                        v.influencerName = data.name
+                        
+                    })
+
+                })
+
+                
                 
                 let conversationRef = db.collection('conversations').doc(v.conversationID)
                 
@@ -128,8 +164,9 @@ export default {
                              let data = doc.data()
                              data.id = doc.id
                              v.messages.push(data)
-                             console.log(data)
+                          
                          })
+                         
   
                     })
                 
@@ -141,21 +178,44 @@ export default {
 </script>
 
 <style scoped>
-.isme {
 
+input {
+
+    margin: 2em;
+}
+
+.container {
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
+.text-card {
+     border-radius: 30px;
+     margin: 5px;
+     
+}
+
+.card-body {
+    padding: 5px;
+}
+
+.card-header {
+    align-self: start;
+    border: 0px;
+    background: white;
+}
+
+.card-subtitle  {
+    text-align: start;
+    padding: 5px;
 }
 
 .speech-bubble-me {
-	position: relative;
-	background: gray;
-	border-radius: 1em;
     color: white;
 }
 
 .speech-bubble-not-me {
-	position: relative;
 	background: #C40057;
-	border-radius: 1em;
     color: white;
 }
 
