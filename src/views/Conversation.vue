@@ -21,7 +21,7 @@
             <div v-for="message in messages">
 
                 <b-row v-if="isMe(message.author)"  v-bind:class="{'isMe': isMe(message.author), 'notme': !isMe(message.author) }">
-                    <b-col class="col-4" offset="8">
+                    <b-col class="col-6" offset="8">
                         <b-card bg-variant="dark" class="speech-bubble-me text-card">
                             <b-card-text>
                                 {{message.message}}
@@ -32,7 +32,7 @@
                 </b-row>
 
                 <b-row v-if="isNotMe(message.author)"  v-bind:class="{'isMe': isMe(message.author), 'notme': !isMe(message.author) }">
-                    <b-col class="col-3">
+                    <b-col class="col-6">
                         <b-card class="speech-bubble-not-me text-card">
                             <b-card-text>
                                 {{message.message}}
