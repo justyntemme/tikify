@@ -18,7 +18,7 @@
                         <b-card>
                             <b-card-header>Transaction for {{getUsername(transaction.artistUID)}} and {{getUsername(transaction.influencerUID)}}</b-card-header>
                             <b-card-body>{{transaction.info}}</b-card-body>
-                            <button @click="viewConversation(transaction.id)">View Conversation</button> 
+                                <button @click="viewConversation(transaction.id)">View Conversation</button> 
                         </b-card>
 
                     </b-col>
@@ -70,9 +70,6 @@ export default {
                 let account  = accountSnapshot.data()
                 v.uid = account.name
                 
-            })
-            .then(function(account){
-                console.log(account.name)
             })
             return v.uid
             
